@@ -114,7 +114,6 @@ export function PhotoLightbox({
           <div className="relative size-full max-w-6xl">
             <SiteImage
               fill
-              priority
               src={photo.src}
               alt={photo.alt}
               className="object-contain"

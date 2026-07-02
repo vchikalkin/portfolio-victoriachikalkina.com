@@ -24,7 +24,7 @@ export async function HeroSection() {
       {heroImage ? (
         <SiteImage
           fill
-          priority
+          preload
           src={heroImage}
           alt={t('imageAlt')}
           className="object-cover object-left md:object-center"
