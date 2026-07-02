@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next-export-optimize-images && node scripts/prune-export-images.mjs",
+    "build": "next build",
+    "build:static": "node scripts/build-static.mjs",
     "start": "next start",
     "lint": "eslint",
     "lint:fix": "eslint --fix",

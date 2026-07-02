@@ -3,11 +3,16 @@ import withExportImages from 'next-export-optimize-images';
 import createNextIntlPlugin from 'next-intl/plugin';
 import createMDX from '@next/mdx';
 
+const isStaticExport = process.env.STATIC_EXPORT === 'true';
+
 const withNextIntl = createNextIntlPlugin();
 
 const baseConfig: NextConfig = {
-  output: 'export',
+  ...(isStaticExport ? { output: 'export' as const } : {}),
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
+  images: {
+    formats: ['image/webp'],
+  },
 };
 
 const withMDX = createMDX({
@@ -15,5 +20,11 @@ const withMDX = createMDX({
 });
 
 export default async (): Promise<NextConfig> => {
-  return withExportImages(withNextIntl(withMDX(baseConfig)));
+  const config = withNextIntl(withMDX(baseConfig));
+
+  if (isStaticExport) {
+    return withExportImages(config);
+  }
+
+  return config;
 };
