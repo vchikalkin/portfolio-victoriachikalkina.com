@@ -8,7 +8,7 @@ import { LocaleSwitcher } from '@/components/locale-switcher';
 import { ThemeSwitcher } from '@/components/theme-switcher';
 import { Button } from '@/components/ui/button';
 import { Container } from '@/components/ui/container';
-import { navigationItems, siteConfig } from '@/config/site';
+import { navigationItems } from '@/config/site';
 import type { SiteControlVariant } from '@/lib/site-control-styles';
 import { useIsClientMounted } from '@/lib/use-client-mounted';
 import { cn } from '@/lib/utils';
@@ -33,6 +33,7 @@ function getScrollServerSnapshot() {
 
 export function Header() {
   const t = useTranslations('Navigation');
+  const tSite = useTranslations('Site');
   const { resolvedTheme } = useTheme();
   const isThemeMounted = useIsClientMounted();
   const [isOpen, setIsOpen] = useState(false);
@@ -63,16 +64,16 @@ export function Header() {
           : 'bg-transparent text-white',
       )}
     >
-      <Container className="flex h-16 items-center gap-3 lg:h-20 lg:gap-4">
+      <Container className="flex h-16 items-center lg:h-20">
         <a
           href="#hero"
-          className="shrink-0 font-serif text-lg tracking-wide lg:text-xl"
+          className="shrink-0 pr-8 font-serif text-lg tracking-wide lg:pr-12 lg:text-xl"
         >
-          {siteConfig.name}
+          {tSite('name')}
         </a>
 
         <nav
-          className="hidden min-w-0 flex-1 items-center justify-center gap-4 xl:flex xl:gap-8"
+          className="hidden min-w-0 flex-1 items-center justify-start gap-4 xl:flex xl:gap-6 2xl:gap-8"
           aria-label="Main"
         >
           {navigationItems.map(({ id, labelKey }) => 

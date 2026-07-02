@@ -3,13 +3,14 @@ import { getTranslations } from 'next-intl/server';
 import { buttonVariants } from '@/components/ui/button';
 import { Container } from '@/components/ui/container';
 import { SiteImage } from '@/components/ui/site-image';
-import { sectionIds, siteConfig } from '@/config/site';
+import { sectionIds } from '@/config/site';
 import { getHeroImage } from '@/lib/photos';
 import type { ConcertItem } from '@/lib/types/content';
 import { cn } from '@/lib/utils';
 
 export async function HeroSection() {
   const t = await getTranslations('Hero');
+  const tSite = await getTranslations('Site');
   const tSchedule = await getTranslations('Schedule');
   const concerts = tSchedule.raw('items') as ConcertItem[];
   const nextConcert = concerts.find((item) => !item.isPast);
@@ -47,7 +48,7 @@ export async function HeroSection() {
               {t('role')}
             </p>
             <h1 className="font-serif text-5xl leading-none tracking-tight md:text-7xl lg:text-8xl">
-              {siteConfig.name}
+              {tSite('name')}
             </h1>
           </div>
 

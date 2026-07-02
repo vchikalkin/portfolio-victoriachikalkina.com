@@ -1,7 +1,7 @@
 import { getTranslations } from 'next-intl/server';
 import { FacebookIcon } from '@/components/icons/facebook-icon';
 import { InstagramIcon } from '@/components/icons/instagram-icon';
-import { TelegramIcon } from '@/components/icons/telegram-icon';
+// import { TelegramIcon } from '@/components/icons/telegram-icon';
 import { YoutubeIcon } from '@/components/icons/youtube-icon';
 import { Container } from '@/components/ui/container';
 import { siteConfig } from '@/config/site';
@@ -25,12 +25,12 @@ const socialLinks = [
     icon: YoutubeIcon,
     label: 'YouTube',
   },
-  {
-    key: 'telegram',
-    href: siteConfig.social.telegram,
-    icon: TelegramIcon,
-    label: 'Telegram',
-  },
+  // {
+  //   key: 'telegram',
+  //   href: siteConfig.social.telegram,
+  //   icon: TelegramIcon,
+  //   label: 'Telegram',
+  // },
 ] as const;
 
 export async function Footer() {

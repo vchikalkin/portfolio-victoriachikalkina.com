@@ -1,10 +1,8 @@
 export const siteConfig = {
-  name: 'Victoria Chikalkina',
-  social: {
-    instagram: 'https://instagram.com',
-    facebook: 'https://facebook.com',
-    youtube: 'https://youtube.com',
-    telegram: 'https://t.me',
+  social: {    instagram: 'https://www.instagram.com/victoriachikalkina.piano',
+    facebook: 'https://www.facebook.com/share/1BLRZTJnSa/?mibextid=wwXIfr',
+    youtube: 'https://www.youtube.com/@edurmajor',
+    // telegram: 'https://t.me',
   },
   contactEmail: 'booking@victoriachikalkina.com',
 } as const;
