@@ -1,9 +1,11 @@
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
-import { getMessages, setRequestLocale } from 'next-intl/server';
+import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server';
 import type { PropsWithChildren } from 'react';
+import { Footer } from '@/components/layout/footer';
+import { Header } from '@/components/layout/header';
 import { SetHtmlLang } from '@/components/set-html-lang';
-import { SiteControls } from '@/components/site-controls';
 import { routing } from '@/i18n/routing';
 
 interface LocaleLayoutProps extends PropsWithChildren {
@@ -12,6 +14,27 @@ interface LocaleLayoutProps extends PropsWithChildren {
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
+}
+
+interface MetadataPageProps {
+  readonly params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({
+  params,
+}: MetadataPageProps): Promise<Metadata> {
+  const { locale } = await params;
+
+  if (!hasLocale(routing.locales, locale)) {
+    return {};
+  }
+
+  const t = await getTranslations({ locale, namespace: 'Meta' });
+
+  return {
+    title: t('title'),
+    description: t('description'),
+  };
 }
 
 export default async function LocaleLayout({ children, params }: LocaleLayoutProps) {
@@ -27,8 +50,9 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
       <SetHtmlLang locale={locale} />
-      <SiteControls />
+      <Header />
       {children}
+      <Footer />
     </NextIntlClientProvider>
   );
 }

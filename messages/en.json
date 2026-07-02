@@ -1,19 +1,136 @@
 {
-  "HomePage": {
-    "title": "To get started, edit the page.tsx file.",
-    "descriptionPrefix": "Looking for a starting point or more instructions? Head over to",
-    "descriptionMiddle": "or the",
-    "descriptionSuffix": " center.",
-    "templates": "Templates",
-    "learning": "Learning",
-    "deploy": "Deploy Now",
-    "docs": "Documentation",
-    "badge": "Boilerplate",
-    "mdx": "MDX"
+  "Meta": {
+    "title": "Victoria Chikalkina | Pianist",
+    "description": "Official website of pianist Victoria Chikalkina — concerts, repertoire, recordings, and booking."
   },
-  "MdxPage": {
-    "title": "MDX example",
-    "back": "Back home"
+  "Navigation": {
+    "home": "Home",
+    "biography": "Biography",
+    "schedule": "Schedule",
+    "media": "Media",
+    "repertoire": "Repertoire",
+    "contact": "Contact",
+    "menu": "Menu",
+    "close": "Close"
+  },
+  "Hero": {
+    "role": "Pianist",
+    "nextConcertLabel": "Next concert",
+    "ctaSchedule": "View schedule"
+  },
+  "Biography": {
+    "title": "Biography",
+    "subtitle": "About the artist",
+    "paragraphs": [
+      "Victoria Chikalkina is a concert pianist whose performances combine refined lyricism with a deeply considered interpretive voice. Her recitals and orchestral appearances span Europe and Asia, with a particular focus on the Romantic and late Classical repertoire.",
+      "A graduate of leading conservatories, she has worked with distinguished mentors and continues to develop projects that connect the concert stage with educational outreach and contemporary programming."
+    ]
+  },
+  "Schedule": {
+    "title": "Schedule",
+    "subtitle": "Upcoming & recent performances",
+    "upcoming": "Upcoming",
+    "past": "Past",
+    "columns": {
+      "date": "Date",
+      "city": "City",
+      "venue": "Venue",
+      "program": "Program"
+    },
+    "items": [
+      {
+        "id": "1",
+        "date": "March 15, 2026",
+        "city": "Moscow",
+        "venue": "Tchaikovsky Concert Hall",
+        "program": "Chopin — Ballades; Schumann — Fantasie, Op. 17"
+      },
+      {
+        "id": "2",
+        "date": "April 22, 2026",
+        "city": "Vienna",
+        "venue": "Musikverein",
+        "program": "Beethoven — Sonata No. 32; Liszt — Sonata in B minor"
+      },
+      {
+        "id": "3",
+        "date": "January 10, 2026",
+        "city": "St. Petersburg",
+        "venue": "Mariinsky Theatre",
+        "program": "Rachmaninoff — Piano Concerto No. 2",
+        "isPast": true
+      }
+    ]
+  },
+  "Media": {
+    "title": "Media",
+    "subtitle": "Watch & listen",
+    "videoTab": "Video",
+    "audioTab": "Audio",
+    "placeholder": "Embed coming soon",
+    "items": [
+      {
+        "id": "1",
+        "title": "Chopin — Ballade No. 1 in G minor",
+        "type": "video",
+        "platform": "youtube"
+      },
+      {
+        "id": "2",
+        "title": "Schumann — Fantasie, Op. 17 (excerpt)",
+        "type": "video",
+        "platform": "vimeo"
+      },
+      {
+        "id": "3",
+        "title": "Rachmaninoff — Prelude in G minor",
+        "type": "audio",
+        "platform": "spotify"
+      }
+    ]
+  },
+  "Repertoire": {
+    "title": "Repertoire",
+    "subtitle": "Selected works",
+    "eras": [
+      {
+        "id": "baroque",
+        "title": "Baroque",
+        "works": ["J.S. Bach — Partitas", "Scarlatti — Selected Sonatas"]
+      },
+      {
+        "id": "classical",
+        "title": "Classical",
+        "works": ["Mozart — Piano Sonatas", "Beethoven — Late Sonatas"]
+      },
+      {
+        "id": "romantic",
+        "title": "Romantic",
+        "works": ["Chopin — Ballades & Nocturnes", "Schumann — Fantasie, Op. 17", "Liszt — Sonata in B minor"]
+      },
+      {
+        "id": "modern",
+        "title": "Modern",
+        "works": ["Rachmaninoff — Concertos & Preludes", "Prokofiev — Piano Sonatas"]
+      }
+    ]
+  },
+  "Contact": {
+    "title": "Contact",
+    "subtitle": "Booking & press inquiries",
+    "description": "For concert bookings, festival invitations, and press requests, please use the form below or write directly.",
+    "form": {
+      "name": "Your name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message",
+      "submit": "Send message",
+      "required": "Required"
+    }
+  },
+  "Footer": {
+    "follow": "Follow",
+    "copyright": "© {year} Victoria Chikalkina"
   },
   "LocaleSwitcher": {
     "label": "Language",
