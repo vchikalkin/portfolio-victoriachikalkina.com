@@ -26,7 +26,7 @@ export async function HeroSection() {
           priority
           src={heroImage}
           alt={t('imageAlt')}
-          className="object-cover object-center"
+          className="object-cover object-left md:object-center"
           sizes="100vw"
         />
       ) : null}
