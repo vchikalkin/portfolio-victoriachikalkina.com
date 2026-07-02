@@ -32,6 +32,7 @@ export function LocaleSwitcher({ variant = 'default' }: LocaleSwitcherProps) {
             key={nextLocale}
             href={pathname}
             locale={nextLocale}
+            aria-label={t(nextLocale)}
             className={cn(
               buttonVariants({
                 size: 'sm',
@@ -41,7 +42,8 @@ export function LocaleSwitcher({ variant = 'default' }: LocaleSwitcherProps) {
               siteControlItemClassName({ variant, isActive }),
             )}
           >
-            {t(nextLocale)}
+            <span className="2xl:hidden">{nextLocale.toUpperCase()}</span>
+            <span className="hidden 2xl:inline">{t(nextLocale)}</span>
           </Link>
         );
       })}

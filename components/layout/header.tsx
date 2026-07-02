@@ -64,16 +64,16 @@ export function Header() {
           : 'bg-transparent text-white',
       )}
     >
-      <Container className="flex h-16 items-center lg:h-20">
+      <Container className="flex h-16 items-center gap-3 lg:h-20 xl:gap-4">
         <a
           href="#hero"
-          className="shrink-0 pr-8 font-serif text-lg tracking-wide lg:pr-12 lg:text-xl"
+          className="shrink-0 pr-4 font-serif text-lg tracking-wide lg:pr-6 lg:text-xl xl:pr-8 2xl:pr-12"
         >
           {tSite('name')}
         </a>
 
         <nav
-          className="hidden min-w-0 flex-1 items-center justify-start gap-4 xl:flex xl:gap-6 2xl:gap-8"
+          className="hidden min-w-0 flex-1 items-center justify-start gap-2 xl:flex xl:gap-3 2xl:gap-5"
           aria-label="Main"
         >
           {navigationItems.map(({ id, labelKey }) => 
@@ -92,7 +92,7 @@ export function Header() {
           )}
         </nav>
 
-        <div className="hidden shrink-0 items-center gap-2 xl:flex">
+        <div className="hidden shrink-0 items-center gap-2 xl:ml-2 xl:flex 2xl:ml-4">
           <ThemeSwitcher variant={controlVariant} />
           <LocaleSwitcher variant={controlVariant} />
         </div>
