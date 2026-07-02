@@ -1,10 +1,11 @@
 export const siteConfig = {
-  social: {    instagram: 'https://www.instagram.com/victoriachikalkina.piano',
+  social: {
+    instagram: 'https://www.instagram.com/victoriachikalkina.piano',
     facebook: 'https://www.facebook.com/share/1BLRZTJnSa/?mibextid=wwXIfr',
     youtube: 'https://www.youtube.com/@edurmajor',
     // telegram: 'https://t.me',
   },
-  contactEmail: 'booking@victoriachikalkina.com',
+  contactEmail: 'victoriachikalkina@gmail.com',
 } as const;
 
 export const sectionIds = {
