@@ -4,7 +4,17 @@ import { useTranslations } from 'next-intl';
 import { useTheme } from 'next-themes';
 import { useSyncExternalStore } from 'react';
 import { Button } from '@/components/ui/button';
+import {
+  siteControlButtonVariant,
+  siteControlItemClassName,
+  siteControlShellClassName,
+  type SiteControlVariant,
+} from '@/lib/site-control-styles';
 import { cn } from '@/lib/utils';
+
+interface ThemeSwitcherProps {
+  readonly variant?: SiteControlVariant;
+}
 
 type ThemeOption = 'light' | 'dark' | 'system';
 
@@ -86,7 +96,7 @@ function getServerSnapshot() {
   return false;
 }
 
-export function ThemeSwitcher() {
+export function ThemeSwitcher({ variant = 'default' }: ThemeSwitcherProps) {
   const { theme, setTheme } = useTheme();
   const t = useTranslations('ThemeSwitcher');
   const isMounted = useSyncExternalStore(
@@ -95,8 +105,7 @@ export function ThemeSwitcher() {
     getServerSnapshot,
   );
 
-  const shellClassName =
-    'flex gap-1 rounded-full border border-border bg-background/90 p-1 text-sm shadow-sm backdrop-blur';
+  const shellClassName = siteControlShellClassName(variant);
 
   if (!isMounted) {
     return (
@@ -123,10 +132,13 @@ export function ThemeSwitcher() {
           <Button
             key={option}
             size="icon"
-            variant={isActive ? 'default' : 'ghost'}
+            variant={siteControlButtonVariant({ variant, isActive })}
             aria-label={t(option)}
             aria-pressed={isActive}
-            className={cn('rounded-full')}
+            className={cn(
+              'rounded-full',
+              siteControlItemClassName({ variant, isActive }),
+            )}
             onClick={() => {
               setTheme(option);
             }}

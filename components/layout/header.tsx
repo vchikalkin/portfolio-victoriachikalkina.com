@@ -2,12 +2,14 @@
 
 import { Menu, X } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { useTheme } from 'next-themes';
 import { useEffect, useState, useSyncExternalStore } from 'react';
 import { LocaleSwitcher } from '@/components/locale-switcher';
 import { ThemeSwitcher } from '@/components/theme-switcher';
 import { Button } from '@/components/ui/button';
 import { Container } from '@/components/ui/container';
 import { navigationItems, siteConfig } from '@/config/site';
+import type { SiteControlVariant } from '@/lib/site-control-styles';
 import { cn } from '@/lib/utils';
 
 const SCROLL_THRESHOLD = 24;
@@ -30,8 +32,8 @@ function getScrollServerSnapshot() {
 
 export function Header() {
   const t = useTranslations('Navigation');
-  const [isOpen, setIsOpen] = useState(false);
-  const isScrolled = useSyncExternalStore(
+  const { resolvedTheme } = useTheme();
+  const [isOpen, setIsOpen] = useState(false);  const isScrolled = useSyncExternalStore(
     subscribeToScroll,
     getScrollSnapshot,
     getScrollServerSnapshot,
@@ -46,9 +48,10 @@ export function Header() {
   }, [isOpen]);
 
   const isSolid = isScrolled || isOpen;
+  const controlVariant: SiteControlVariant =
+    isSolid || resolvedTheme !== 'light' ? 'default' : 'overlay';
 
-  return (
-    <header
+  return (    <header
       className={cn(
         'fixed inset-x-0 top-0 z-50 transition-colors duration-300',
         isSolid
@@ -79,10 +82,9 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-2 md:flex">
-          <ThemeSwitcher />
-          <LocaleSwitcher />
+          <ThemeSwitcher variant={controlVariant} />
+          <LocaleSwitcher variant={controlVariant} />
         </div>
-
         <Button
           variant="ghost"
           size="icon"

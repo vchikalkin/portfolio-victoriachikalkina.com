@@ -4,18 +4,25 @@ import { useLocale, useTranslations } from 'next-intl';
 import { buttonVariants } from '@/components/ui/button';
 import { Link, usePathname } from '@/i18n/navigation';
 import { type Locale, routing } from '@/i18n/routing';
+import {
+  siteControlButtonVariant,
+  siteControlItemClassName,
+  siteControlShellClassName,
+  type SiteControlVariant,
+} from '@/lib/site-control-styles';
 import { cn } from '@/lib/utils';
 
-export function LocaleSwitcher() {
+interface LocaleSwitcherProps {
+  readonly variant?: SiteControlVariant;
+}
+
+export function LocaleSwitcher({ variant = 'default' }: LocaleSwitcherProps) {
   const locale = useLocale() as Locale;
   const pathname = usePathname();
   const t = useTranslations('LocaleSwitcher');
 
   return (
-    <nav
-      aria-label={t('label')}
-      className="flex gap-1 rounded-full border border-border bg-background/90 p-1 text-sm shadow-sm backdrop-blur"
-    >
+    <nav aria-label={t('label')} className={siteControlShellClassName(variant)}>
       {routing.locales.map((nextLocale) => {
         const isActive = locale === nextLocale;
 
@@ -28,9 +35,10 @@ export function LocaleSwitcher() {
             className={cn(
               buttonVariants({
                 size: 'sm',
-                variant: isActive ? 'default' : 'ghost',
+                variant: siteControlButtonVariant({ variant, isActive }),
               }),
               'rounded-full',
+              siteControlItemClassName({ variant, isActive }),
             )}
           >
             {t(nextLocale)}
