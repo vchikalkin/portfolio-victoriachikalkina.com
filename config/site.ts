@@ -14,6 +14,7 @@ export const sectionIds = {
   biography: 'biography',
   schedule: 'schedule',
   media: 'media',
+  photos: 'photos',
   repertoire: 'repertoire',
   contact: 'contact',
 } as const;
@@ -30,6 +31,7 @@ export const navigationItems: NavigationItem[] = [
   { id: sectionIds.biography, labelKey: 'biography' },
   { id: sectionIds.schedule, labelKey: 'schedule' },
   { id: sectionIds.media, labelKey: 'media' },
+  { id: sectionIds.photos, labelKey: 'photos' },
   { id: sectionIds.repertoire, labelKey: 'repertoire' },
   { id: sectionIds.contact, labelKey: 'contact' },
 ];

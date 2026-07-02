@@ -8,6 +8,7 @@
     "biography": "Biography",
     "schedule": "Schedule",
     "media": "Media",
+    "photos": "Photos",
     "repertoire": "Repertoire",
     "contact": "Contact",
     "menu": "Menu",
@@ -15,6 +16,7 @@
   },
   "Hero": {
     "role": "Pianist",
+    "imageAlt": "Victoria Chikalkina at the piano",
     "nextConcertLabel": "Next concert",
     "ctaSchedule": "View schedule"
   },
@@ -89,6 +91,15 @@
       }
     ]
   },
+  "Photos": {
+    "title": "Photos",
+    "subtitle": "On stage & behind the scenes",
+    "imageAlt": "Photo {number}",
+    "openPhoto": "Open photo",
+    "close": "Close",
+    "previous": "Previous photo",
+    "next": "Next photo"
+  },
   "Repertoire": {
     "title": "Repertoire",
     "subtitle": "Selected works",
@@ -131,6 +142,10 @@
   "Footer": {
     "follow": "Follow",
     "copyright": "© {year} Victoria Chikalkina"
+  },
+  "MdxPage": {
+    "title": "MDX example",
+    "back": "Back home"
   },
   "LocaleSwitcher": {
     "label": "Language",

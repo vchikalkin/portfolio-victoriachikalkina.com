@@ -2,7 +2,9 @@ import { Calendar } from 'lucide-react';
 import { getTranslations } from 'next-intl/server';
 import { buttonVariants } from '@/components/ui/button';
 import { Container } from '@/components/ui/container';
+import { SiteImage } from '@/components/ui/site-image';
 import { sectionIds, siteConfig } from '@/config/site';
+import { getHeroImage } from '@/lib/photos';
 import type { ConcertItem } from '@/lib/types/content';
 import { cn } from '@/lib/utils';
 
@@ -11,15 +13,27 @@ export async function HeroSection() {
   const tSchedule = await getTranslations('Schedule');
   const concerts = tSchedule.raw('items') as ConcertItem[];
   const nextConcert = concerts.find((item) => !item.isPast);
+  const heroImage = getHeroImage();
 
   return (
     <section
       id={sectionIds.hero}
       className="relative flex min-h-svh items-end overflow-hidden bg-zinc-950 text-white"
     >
+      {heroImage ? (
+        <SiteImage
+          fill
+          priority
+          src={heroImage}
+          alt={t('imageAlt')}
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+      ) : null}
+
       <div
         aria-hidden
-        className="absolute inset-0 bg-linear-to-t from-zinc-950 via-zinc-950/60 to-zinc-900/30"
+        className="absolute inset-0 bg-linear-to-t from-zinc-950 via-zinc-950/70 to-zinc-900/40"
       />
       <div
         aria-hidden

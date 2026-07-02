@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button';
 import { Container } from '@/components/ui/container';
 import { navigationItems, siteConfig } from '@/config/site';
 import type { SiteControlVariant } from '@/lib/site-control-styles';
+import { useIsClientMounted } from '@/lib/use-client-mounted';
 import { cn } from '@/lib/utils';
 
 const SCROLL_THRESHOLD = 24;
@@ -33,7 +34,9 @@ function getScrollServerSnapshot() {
 export function Header() {
   const t = useTranslations('Navigation');
   const { resolvedTheme } = useTheme();
-  const [isOpen, setIsOpen] = useState(false);  const isScrolled = useSyncExternalStore(
+  const isThemeMounted = useIsClientMounted();
+  const [isOpen, setIsOpen] = useState(false);
+  const isScrolled = useSyncExternalStore(
     subscribeToScroll,
     getScrollSnapshot,
     getScrollServerSnapshot,
@@ -49,9 +52,10 @@ export function Header() {
 
   const isSolid = isScrolled || isOpen;
   const controlVariant: SiteControlVariant =
-    isSolid || resolvedTheme !== 'light' ? 'default' : 'overlay';
+    isSolid || (isThemeMounted && resolvedTheme !== 'light') ? 'default' : 'overlay';
 
-  return (    <header
+  return (
+    <header
       className={cn(
         'fixed inset-x-0 top-0 z-50 transition-colors duration-300',
         isSolid
@@ -59,18 +63,24 @@ export function Header() {
           : 'bg-transparent text-white',
       )}
     >
-      <Container className="flex h-16 items-center justify-between md:h-20">
-        <a href="#hero" className="font-serif text-lg tracking-wide md:text-xl">
+      <Container className="flex h-16 items-center gap-3 lg:h-20 lg:gap-4">
+        <a
+          href="#hero"
+          className="shrink-0 font-serif text-lg tracking-wide lg:text-xl"
+        >
           {siteConfig.name}
         </a>
 
-        <nav className="hidden items-center gap-8 md:flex" aria-label="Main">
+        <nav
+          className="hidden min-w-0 flex-1 items-center justify-center gap-4 xl:flex xl:gap-8"
+          aria-label="Main"
+        >
           {navigationItems.map(({ id, labelKey }) => 
             { return <a
               key={id}
               href={`#${id}`}
               className={cn(
-                'text-sm tracking-wide transition-colors',
+                'text-sm tracking-wide whitespace-nowrap transition-colors',
                 isSolid
                   ? 'text-foreground/70 hover:text-foreground'
                   : 'text-white/70 hover:text-white',
@@ -81,14 +91,15 @@ export function Header() {
           )}
         </nav>
 
-        <div className="hidden items-center gap-2 md:flex">
+        <div className="hidden shrink-0 items-center gap-2 xl:flex">
           <ThemeSwitcher variant={controlVariant} />
           <LocaleSwitcher variant={controlVariant} />
         </div>
+
         <Button
           variant="ghost"
           size="icon"
-          className={cn('md:hidden', !isSolid && 'text-white hover:bg-white/10')}
+          className={cn('ml-auto xl:hidden', !isSolid && 'text-white hover:bg-white/10')}
           aria-expanded={isOpen}
           aria-label={isOpen ? t('close') : t('menu')}
           onClick={() => {
@@ -100,7 +111,7 @@ export function Header() {
       </Container>
 
       {isOpen ? (
-        <div className="border-t border-border/60 bg-background md:hidden">
+        <div className="border-t border-border/60 bg-background xl:hidden">
           <Container className="flex flex-col gap-1 py-6">
             {navigationItems.map(({ id, labelKey }) => 
               { return <a
@@ -115,8 +126,8 @@ export function Header() {
               </a> }
             )}
             <div className="mt-6 flex items-center gap-2 border-t border-border pt-6">
-              <ThemeSwitcher />
-              <LocaleSwitcher />
+              <ThemeSwitcher variant={controlVariant} />
+              <LocaleSwitcher variant={controlVariant} />
             </div>
           </Container>
         </div>

@@ -2,7 +2,6 @@
 
 import { useTranslations } from 'next-intl';
 import { useTheme } from 'next-themes';
-import { useSyncExternalStore } from 'react';
 import { Button } from '@/components/ui/button';
 import {
   siteControlButtonVariant,
@@ -10,6 +9,7 @@ import {
   siteControlShellClassName,
   type SiteControlVariant,
 } from '@/lib/site-control-styles';
+import { useIsClientMounted } from '@/lib/use-client-mounted';
 import { cn } from '@/lib/utils';
 
 interface ThemeSwitcherProps {
@@ -80,30 +80,10 @@ function renderThemeIcon(option: ThemeOption) {
   }
 }
 
-function noopUnsubscribe() {
-  // useSyncExternalStore requires a cleanup function even when unused.
-}
-
-function subscribeToClientMount() {
-  return noopUnsubscribe;
-}
-
-function getClientSnapshot() {
-  return true;
-}
-
-function getServerSnapshot() {
-  return false;
-}
-
 export function ThemeSwitcher({ variant = 'default' }: ThemeSwitcherProps) {
   const { theme, setTheme } = useTheme();
   const t = useTranslations('ThemeSwitcher');
-  const isMounted = useSyncExternalStore(
-    subscribeToClientMount,
-    getClientSnapshot,
-    getServerSnapshot,
-  );
+  const isMounted = useIsClientMounted();
 
   const shellClassName = siteControlShellClassName(variant);
 

@@ -5,6 +5,7 @@ import { BiographySection } from '@/components/sections/biography';
 import { ContactSection } from '@/components/sections/contact';
 import { HeroSection } from '@/components/sections/hero';
 import { MediaSection } from '@/components/sections/media';
+import { PhotosSection } from '@/components/sections/photos';
 import { RepertoireSection } from '@/components/sections/repertoire';
 import { ScheduleSection } from '@/components/sections/schedule';
 import { routing } from '@/i18n/routing';
@@ -28,6 +29,7 @@ export default async function HomePage({ params }: HomePageProps) {
       <BiographySection />
       <ScheduleSection />
       <MediaSection />
+      <PhotosSection />
       <RepertoireSection />
       <ContactSection />
     </main>
