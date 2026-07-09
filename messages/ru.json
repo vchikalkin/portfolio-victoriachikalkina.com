@@ -304,7 +304,8 @@
     "follow": "Социальные сети",
     "copyright": "© {year} Виктория Чикалкина",    
     "developedBy": "Разработка сайта — ",
-    "developer": "vchikalkin.dev"
+    "developer": "vchikalkin.dev",
+    "developerLink": "https://vchikalkin.dev"
   },
   "MdxPage": {
     "title": "Пример MDX",

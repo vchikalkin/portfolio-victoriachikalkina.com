@@ -64,7 +64,7 @@ export async function Footer() {
         <p className="text-foreground/50 text-sm">
           {t('copyright', { year })} | {t('developedBy')}{' '}
           <a
-            href={t('developer')}
+            href={t('developerLink')}
             target="_blank"
             rel="noopener noreferrer"
             className="text-foreground hover:text-foreground"

@@ -310,7 +310,8 @@
     "follow": "Follow",
     "copyright": "© {year} Victoria Chikalkina",
     "developedBy": "Developed by — ",
-    "developer": "vchikalkin.dev"
+    "developer": "vchikalkin.dev",
+    "developerLink": "https://vchikalkin.dev"
   },
   "MdxPage": {
     "title": "MDX example",
