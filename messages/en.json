@@ -89,7 +89,8 @@
       "date": "Date",
       "city": "City",
       "venue": "Venue",
-      "program": "Program"
+      "program": "Program",
+      "artists": "Artists"
     },
     "items": [
       {
@@ -97,7 +98,8 @@
         "date": "September 20, 2026",
         "city": "Neuchâtel",
         "venue": "La Collégiale de Neuchâtel, Switzerland",
-        "program": "«Schubertiade» · F. Schubert — Piano Trio No. 2 · Maxim Synytskyi (violin), Denis Poustovgar (cello), Viktoriia Chikalkina (fortepiano)"
+        "program": "«Schubertiade» · F. Schubert — Piano Trio No. 2",
+        "artists": "Maxim Synytskyi (violin), Denis Poustovgar (cello), Viktoriia Chikalkina (fortepiano)"
       },
       {
         "id": "geneva-2027-05-14",

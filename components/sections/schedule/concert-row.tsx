@@ -14,6 +14,9 @@ export function ConcertRow({ concert }: ConcertRowProps) {
         {concert.city}
       </td>
       <td className="py-5 pr-4 align-top text-sm md:py-6">{concert.venue}</td>
+      <td className="hidden py-5 pr-4 align-top text-sm leading-relaxed text-foreground/70 lg:table-cell lg:py-6">
+        {concert.artists ?? '—'}
+      </td>
       <td className="hidden py-5 align-top text-sm leading-relaxed text-foreground/70 lg:table-cell lg:py-6">
         {concert.program}
       </td>

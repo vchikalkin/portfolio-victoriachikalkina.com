@@ -13,12 +13,13 @@ export function ConcertTable({ concerts, columns }: ConcertTableProps) {
 
   return (
     <div className="overflow-x-auto">
-      <table className="w-full min-w-[640px] border-collapse text-left">
+      <table className="w-full min-w-[800px] border-collapse text-left">
         <thead>
           <tr className="border-b border-border text-xs tracking-[0.15em] text-foreground/50 uppercase">
             <th className="pr-4 pb-4 font-medium">{columns.date}</th>
             <th className="hidden pr-4 pb-4 font-medium md:table-cell">{columns.city}</th>
             <th className="pr-4 pb-4 font-medium">{columns.venue}</th>
+            <th className="hidden pr-4 pb-4 font-medium lg:table-cell">{columns.artists}</th>
             <th className="hidden pb-4 font-medium lg:table-cell">{columns.program}</th>
           </tr>
         </thead>

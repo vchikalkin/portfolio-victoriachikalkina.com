@@ -4,6 +4,7 @@ export interface ConcertItem {
   city: string;
   venue: string;
   program: string;
+  artists?: string;
   isPast?: boolean;
 }
 
