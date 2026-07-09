@@ -1,10 +1,10 @@
 import { getTranslations } from 'next-intl/server';
+import { NextConcertBlock } from '@/components/sections/hero/next-concert-block';
 import { Container } from '@/components/ui/container';
 import { SiteImage } from '@/components/ui/site-image';
 import { sectionIds } from '@/config/site';
 import { getHeroImage } from '@/lib/photos';
 import type { ConcertItem } from '@/lib/types/content';
-import { NextConcertBlock } from './hero/next-concert-block';
 
 export async function HeroSection() {
   const t = await getTranslations('Hero');
