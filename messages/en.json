@@ -95,7 +95,7 @@
     "items": [
       {
         "id": "neuchatel-2026-09-20",
-        "date": "September 20, 2026",
+        "date": "2026-09-20",
         "city": "Neuchâtel",
         "venue": "La Collégiale de Neuchâtel, Switzerland",
         "program": "«Schubertiade» · F. Schubert — Piano Trio No. 2",
@@ -103,7 +103,7 @@
       },
       {
         "id": "geneva-2027-05-14",
-        "date": "May 14, 2027",
+        "date": "2027-05-14",
         "city": "Geneva",
         "venue": "Geneva, Switzerland",
         "program": "W. A. Mozart — Piano Concerto No. 12 in A major, K. 414 · performed on a historical fortepiano (replica after Johann Andreas Stein)"
