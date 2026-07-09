@@ -61,17 +61,21 @@ export async function Footer() {
             })}
           </div>
         </div>
-        <p className="text-foreground/50 text-sm">
-          {t('copyright', { year })} | {t('developedBy')}{' '}
-          <a
-            href={t('developerLink')}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-foreground hover:text-foreground"
-          >
-            {t('developer')}
-          </a>
-        </p>
+        <div className="flex flex-col items-center gap-1 sm:flex-row sm:gap-2">
+          <span className="text-foreground/50 text-sm">{t('copyright', { year })}</span>
+          <span className="text-foreground/50 hidden text-sm sm:inline">|</span>
+          <span className="text-foreground/50 text-sm">
+            {t('developedBy')}{' '}
+            <a
+              href={t('developerLink')}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground hover:text-foreground"
+            >
+              {t('developer')}
+            </a>
+          </span>
+        </div>
       </Container>
     </footer>
   );
