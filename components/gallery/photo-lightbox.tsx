@@ -5,6 +5,7 @@ import { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { SiteImage } from '@/components/ui/site-image';
 import type { GalleryPhoto } from '@/lib/types/photos';
+import { useScrollLock } from '@/lib/use-scroll-lock';
 import { cn } from '@/lib/utils';
 
 interface PhotoLightboxLabels {
@@ -33,6 +34,8 @@ export function PhotoLightbox({
   const hasPrevious = index > 0;
   const hasNext = index < photos.length - 1;
 
+  useScrollLock();
+
   useEffect(() => {
     const dialog = dialogRef.current;
 
@@ -40,13 +43,9 @@ export function PhotoLightbox({
       return;
     }
 
-    const previousOverflow = document.body.style.overflow;
-
-    document.body.style.overflow = 'hidden';
     dialog.showModal();
 
     return () => {
-      document.body.style.overflow = previousOverflow;
       dialog.close();
     };
   }, []);
