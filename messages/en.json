@@ -308,7 +308,9 @@
   },
   "Footer": {
     "follow": "Follow",
-    "copyright": "© {year} Victoria Chikalkina"
+    "copyright": "© {year} Victoria Chikalkina",
+    "developedBy": "Developed by — ",
+    "developer": "vchikalkin.dev"
   },
   "MdxPage": {
     "title": "MDX example",

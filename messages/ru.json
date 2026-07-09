@@ -302,7 +302,9 @@
   },
   "Footer": {
     "follow": "Социальные сети",
-    "copyright": "© {year} Виктория Чикалкина"
+    "copyright": "© {year} Виктория Чикалкина",    
+    "developedBy": "Разработка сайта — ",
+    "developer": "vchikalkin.dev"
   },
   "MdxPage": {
     "title": "Пример MDX",
