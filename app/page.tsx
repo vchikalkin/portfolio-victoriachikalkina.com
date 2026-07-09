@@ -8,9 +8,5 @@ export default function RootPage() {
     window.location.replace(`/${routing.defaultLocale}`);
   }, []);
 
-  return (
-    <main className="flex flex-1 items-center justify-center">
-      <p className="text-zinc-600 dark:text-zinc-400">Redirecting…</p>
-    </main>
-  );
+  return null;
 }
