@@ -16,14 +16,12 @@ export function ConcertRow({ concert }: ConcertRowProps) {
       <td className="py-5 pr-4 align-top text-sm font-medium whitespace-nowrap md:py-6">
         {displayDate}
       </td>
-      <td className="text-foreground/70 hidden py-5 pr-4 align-top text-sm md:table-cell md:py-6">
-        {concert.city}
-      </td>
+      <td className="text-foreground/70 py-5 pr-4 align-top text-sm md:py-6">{concert.city}</td>
       <td className="py-5 pr-4 align-top text-sm md:py-6">{concert.venue}</td>
-      <td className="text-foreground/70 hidden py-5 pr-4 align-top text-sm leading-relaxed lg:table-cell lg:py-6">
+      <td className="text-foreground/70 py-5 pr-4 align-top text-sm leading-relaxed lg:py-6">
         {concert.artists ?? '—'}
       </td>
-      <td className="text-foreground/70 hidden py-5 align-top text-sm leading-relaxed lg:table-cell lg:py-6">
+      <td className="text-foreground/70 py-5 align-top text-sm leading-relaxed lg:py-6">
         {concert.program}
       </td>
     </tr>
