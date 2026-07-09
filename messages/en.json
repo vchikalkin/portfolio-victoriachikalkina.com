@@ -81,7 +81,7 @@
     }
   },
   "Schedule": {
-    "title": "Schedule",
+    "title": "Upcoming Concerts",
     "subtitle": "Upcoming & recent performances",
     "upcoming": "Upcoming",
     "past": "Past",
@@ -93,26 +93,18 @@
     },
     "items": [
       {
-        "id": "1",
-        "date": "March 15, 2026",
-        "city": "Moscow",
-        "venue": "Tchaikovsky Concert Hall",
-        "program": "Chopin — Ballades; Schumann — Fantasie, Op. 17"
+        "id": "neuchatel-2026-09-20",
+        "date": "September 20, 2026",
+        "city": "Neuchâtel",
+        "venue": "La Collégiale de Neuchâtel, Switzerland",
+        "program": "«Schubertiade» · F. Schubert — Piano Trio No. 2 · Maxim Synytskyi (violin), Denis Poustovgar (cello), Viktoriia Chikalkina (fortepiano)"
       },
       {
-        "id": "2",
-        "date": "April 22, 2026",
-        "city": "Vienna",
-        "venue": "Musikverein",
-        "program": "Beethoven — Sonata No. 32; Liszt — Sonata in B minor"
-      },
-      {
-        "id": "3",
-        "date": "January 10, 2026",
-        "city": "St. Petersburg",
-        "venue": "Mariinsky Theatre",
-        "program": "Rachmaninoff — Piano Concerto No. 2",
-        "isPast": true
+        "id": "geneva-2027-05-14",
+        "date": "May 14, 2027",
+        "city": "Geneva",
+        "venue": "Geneva, Switzerland",
+        "program": "W. A. Mozart — Piano Concerto No. 12 in A major, K. 414 · performed on a historical fortepiano (replica after Johann Andreas Stein)"
       }
     ]
   },
