@@ -157,24 +157,152 @@
     "subtitle": "Selected works",
     "eras": [
       {
-        "id": "baroque",
-        "title": "Baroque",
-        "works": ["J.S. Bach — Partitas", "Scarlatti — Selected Sonatas"]
+        "id": "baroque-pre-classical",
+        "title": "Baroque & Pre-Classical",
+        "works": [
+          "Johann Sebastian Bach — Prelude and Fugue No. 15 in G major, BWV 860, WTC I",
+          "Johann Sebastian Bach — Prelude and Fugue No. 19 in A major, BWV 864, WTC I",
+          "Johann Sebastian Bach — Prelude and Fugue No. 21 in B-flat major, BWV 866, WTC I",
+          "Johann Sebastian Bach — Prelude and Fugue No. 3 in C-sharp major, BWV 872, WTC II",
+          "Johann Sebastian Bach — Prelude and Fugue No. 8 in D-sharp minor, BWV 877, WTC II",
+          "Johann Sebastian Bach — Prelude and Fugue No. 11 in F major, BWV 880, WTC II",
+          "Johann Sebastian Bach — Prelude and Fugue No. 15 in G major, BWV 884, WTC II",
+          "Johann Sebastian Bach — Prelude and Fugue No. 17 in A-flat major, BWV 886, WTC II",
+          "Johann Sebastian Bach — Prelude and Fugue No. 18 in G-sharp minor, BWV 887, WTC II",
+          "Johann Sebastian Bach — Prelude and Fugue No. 24 in B minor, BWV 893, WTC II",
+          "Johann Sebastian Bach — Toccata in G minor, BWV 915",
+          "Johann Sebastian Bach — French Suite No. 5 in G major, BWV 816",
+          "Johann Sebastian Bach — English Suite No. 6 in D minor, BWV 811",
+          "Carl Philipp Emanuel Bach — Rondo in C minor, Wq. 59/6",
+          "Carl Philipp Emanuel Bach — Fantasia in C major, Wq. 59/4"
+        ]
       },
       {
         "id": "classical",
         "title": "Classical",
-        "works": ["Mozart — Piano Sonatas", "Beethoven — Late Sonatas"]
+        "works": [
+          "Joseph Haydn — Keyboard Sonata in F major, Hob. XVI:23",
+          "Joseph Haydn — Keyboard Sonata in A-flat major, Hob. XVI:46",
+          "Joseph Haydn — Andante con variazioni in F minor, Hob. XVII:6",
+          "Wolfgang Amadeus Mozart — Piano Sonata No. 5 in G major, K. 283",
+          "Wolfgang Amadeus Mozart — Piano Sonata No. 9 in D major, K. 311",
+          "Wolfgang Amadeus Mozart — Piano Sonata No. 10 in C major, K. 330",
+          "Wolfgang Amadeus Mozart — Piano Sonata No. 12 in F major, K. 332",
+          "Wolfgang Amadeus Mozart — Piano Sonata No. 14 in C minor, K. 457",
+          "Wolfgang Amadeus Mozart — Piano Sonata No. 16 in C major, K. 545",
+          "Ludwig van Beethoven — Piano Sonata No. 2 in A major, Op. 2 No. 2",
+          "Ludwig van Beethoven — Piano Sonata No. 9 in E major, Op. 14 No. 1",
+          "Ludwig van Beethoven — Piano Sonata No. 24 in F-sharp major, Op. 78",
+          "Ludwig van Beethoven — Piano Sonata No. 27 in E minor, Op. 90",
+          "Ludwig van Beethoven — Piano Sonata No. 30 in E major, Op. 109"
+        ]
       },
       {
         "id": "romantic",
         "title": "Romantic",
-        "works": ["Chopin — Ballades & Nocturnes", "Schumann — Fantasie, Op. 17", "Liszt — Sonata in B minor"]
+        "works": [
+          "Franz Schubert — Piano Sonata No. 16 in A minor, Op. 42, D. 845",
+          "Frédéric Chopin — Études, Op. 10: Nos. 5, 7, 8, 10",
+          "Frédéric Chopin — Études, Op. 25: Nos. 2, 6, 9, 11, 12",
+          "Frédéric Chopin — Nocturnes, Op. 15: Nos. 1, 2, 3",
+          "Frédéric Chopin — Nocturnes, Op. 27: Nos. 1, 2",
+          "Frédéric Chopin — Mazurkas, Op. 30: Nos. 1–4",
+          "Frédéric Chopin — Mazurkas, Op. 59: Nos. 1–3",
+          "Frédéric Chopin — Waltzes, Op. 34: Nos. 1–3",
+          "Frédéric Chopin — Ballade No. 3 in A-flat major, Op. 47",
+          "Frédéric Chopin — Ballade No. 4 in F minor, Op. 52",
+          "Frédéric Chopin — Scherzo No. 2 in B-flat minor, Op. 31",
+          "Frédéric Chopin — Barcarolle in F-sharp major, Op. 60",
+          "Frédéric Chopin — Piano Sonata No. 3 in B minor, Op. 58",
+          "Frédéric Chopin — Andante spianato and Grande Polonaise brillante, Op. 22",
+          "Robert Schumann — Études after Paganini Caprices, Op. 10: Nos. 1 and 3",
+          "Robert Schumann — Fantasiestücke, Op. 12",
+          "Robert Schumann — Arabeske in C major, Op. 18",
+          "Robert Schumann — Novelette in D major, Op. 21 No. 2",
+          "Robert Schumann — Waldszenen, Op. 82",
+          "Robert Schumann — Piano Sonata No. 1 in F-sharp minor, Op. 11",
+          "Robert Schumann — Piano Sonata No. 3 in F minor, Op. 14",
+          "César Franck — Prélude, Fugue et Variation, Op. 18",
+          "César Franck — Prélude, Choral et Fugue, FWV 21",
+          "Pyotr Ilyich Tchaikovsky — Rêverie, Op. 9 No. 1",
+          "Pyotr Ilyich Tchaikovsky — Nocturne, Op. 10 No. 1",
+          "Pyotr Ilyich Tchaikovsky — Theme and Variations in F major, Op. 19 No. 6",
+          "Pyotr Ilyich Tchaikovsky — 18 Pieces, Op. 72: No. 3 Tendres reproches, No. 4 Danse caractéristique, No. 14 Chant élégiaque, No. 15 Un poco di Chopin, No. 18 Scène dansante (Invitation au trépak)"
+        ]
       },
       {
-        "id": "modern",
-        "title": "Modern",
-        "works": ["Rachmaninoff — Concertos & Preludes", "Prokofiev — Piano Sonatas"]
+        "id": "contemporary",
+        "title": "20th Century & Contemporary",
+        "works": [
+          "Claude Debussy — Suite bergamasque, L. 75",
+          "Claude Debussy — Images, Première série, L. 110",
+          "Claude Debussy — Étude No. 11 Pour les arpèges composés, L. 136",
+          "Claude Debussy — L'isle joyeuse, L. 106",
+          "George Enescu — Piano Suite No. 2 in D major, Op. 10",
+          "Ettore Pozzoli — Riflessi del mare",
+          "Ettore Pozzoli — Trois Études",
+          "Einojuhani Rautavaara — Étude, Op. 42 No. 4 Kvartit (Fourths)",
+          "Nikolai Medtner — Forgotten Melodies, Op. 38 (Cycle I)",
+          "Sergei Rachmaninoff — Elégie in E-flat minor, Op. 3 No. 1",
+          "Sergei Rachmaninoff — Preludes, Op. 23: Nos. 2 and 6",
+          "Sergei Rachmaninoff — Preludes, Op. 32: Nos. 9, 10, 11, 12, 13",
+          "Alexander Scriabin — Piano Sonata No. 2 in G-sharp minor, Op. 19 (Sonata-Fantasy)",
+          "Alexander Scriabin — Étude in C-sharp minor, Op. 42 No. 5",
+          "Sergei Prokofiev — Piano Sonata No. 2 in D minor, Op. 14",
+          "Dmitri Shostakovich — Prelude and Fugue in E minor, Op. 87 No. 4",
+          "Dmitri Shostakovich — Prelude and Fugue in A major, Op. 87 No. 7",
+          "Carl Vine — Piano Sonata No. 2",
+          "Carl Vine — The Anne Landa Preludes: No. 1 Short Variations and No. 2 Impromptu"
+        ]
+      },
+      {
+        "id": "concertos",
+        "title": "Concertos for Piano and Orchestra",
+        "works": [
+          "Johann Sebastian Bach — Keyboard Concerto No. 5 in F minor, BWV 1056",
+          "Johann Sebastian Bach — Keyboard Concerto No. 7 in G minor, BWV 1058",
+          "Wolfgang Amadeus Mozart — Piano Concerto No. 12 in A major, K. 414",
+          "Wolfgang Amadeus Mozart — Piano Concerto No. 21 in C major, K. 467",
+          "Ludwig van Beethoven — Piano Concerto No. 4 in G major, Op. 58",
+          "Felix Mendelssohn — Piano Concerto No. 1 in G minor, Op. 25",
+          "Frédéric Chopin — Piano Concerto No. 1 in E minor, Op. 11",
+          "Robert Schumann — Piano Concerto in A minor, Op. 54",
+          "Pyotr Ilyich Tchaikovsky — Piano Concerto No. 2 in G major, Op. 44"
+        ]
+      },
+      {
+        "id": "chamber-music",
+        "title": "Chamber Music",
+        "works": [
+          "Wolfgang Amadeus Mozart — Violin Sonata in G major, K. 301",
+          "Wolfgang Amadeus Mozart — Violin Sonata in E minor, K. 304",
+          "Ludwig van Beethoven — Violin Sonata No. 3 in E-flat major, Op. 12 No. 3",
+          "Ludwig van Beethoven — Violin Sonata No. 6 in A major, Op. 30 No. 1",
+          "Ludwig van Beethoven — Violin Sonata No. 9 in A major, Op. 47 Kreutzer",
+          "Franz Schubert — Piano Trio No. 2 in E-flat major, Op. 100, D. 929",
+          "Felix Mendelssohn — Cello Sonata No. 2 in D major, Op. 58",
+          "Johannes Brahms — Cello Sonata No. 1 in E minor, Op. 38",
+          "Johannes Brahms — Piano Trio No. 3 in C minor, Op. 101",
+          "Mikhail Glinka — Trio Pathétique in D minor (for Clarinet, Bassoon/Cello and Piano)",
+          "Antonín Dvořák — Violin Sonata in F major, Op. 57",
+          "Edward Elgar — Violin Sonata in E minor, Op. 82",
+          "Ottorino Respighi — Sonata for Violin and Piano in B minor, P. 110",
+          "Francis Poulenc — Violin Sonata, FP 119",
+          "Bohuslav Martinů — Sonata for Flute, Violin and Piano, H. 254",
+          "Nikolai Myaskovsky — Cello Sonata No. 2 in A minor, Op. 81",
+          "Dmitri Shostakovich — Piano Trio No. 2 in E minor, Op. 67"
+        ]
+      },
+      {
+        "id": "piano-duets",
+        "title": "Piano Duets (Two Pianos / Four Hands)",
+        "works": [
+          "Pyotr Ilyich Tchaikovsky — Nutcracker Suite, Op. 71a (Arrangement for piano duet)",
+          "Edvard Grieg — Peer Gynt Suite No. 1, Op. 46 (Arrangement for piano duet)",
+          "Edvard Grieg — Peer Gynt Suite No. 2, Op. 55 (Arrangement for piano duet)",
+          "Claude Debussy — Petite Suite, L. 65 (for piano four-hands)",
+          "Sergei Rachmaninoff — Suite No. 2 for Two Pianos, Op. 17"
+        ]
       }
     ]
   },
