@@ -18,7 +18,7 @@ const sheriffOptions = {
 
 export default defineConfig(
   {
-    ignores: ['postcss.config.mjs'],
+    ignores: ['postcss.config.mjs', 'export-images.config.js', 'scripts/**'],
   },
   sheriff(sheriffOptions),
   {
@@ -32,6 +32,20 @@ export default defineConfig(
     rules: {
       'func-style': 'off',
       '@typescript-eslint/explicit-module-boundary-types': 'off',
+      'tailwindcss/no-custom-classname': [
+        'warn',
+        {
+          whitelist: [
+            'card-hover',
+            'gradient-text',
+            'btn-gradient',
+            'toggle-active',
+            'orb-drift-1',
+            'orb-drift-2',
+            'orb-drift-3',
+          ],
+        },
+      ],
     },
   },
   {
