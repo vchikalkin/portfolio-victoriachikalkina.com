@@ -6,6 +6,7 @@ import type { PropsWithChildren } from 'react';
 import { Footer } from '@/components/layout/footer';
 import { Header } from '@/components/layout/header';
 import { SetHtmlLang } from '@/components/set-html-lang';
+import { siteConfig } from '@/config/site';
 import { routing } from '@/i18n/routing';
 
 interface LocaleLayoutProps extends PropsWithChildren {
@@ -30,10 +31,36 @@ export async function generateMetadata({
   }
 
   const t = await getTranslations({ locale, namespace: 'Meta' });
+  const localePath = `/${locale}`;
 
   return {
+    metadataBase: new URL(siteConfig.siteUrl),
     title: t('title'),
     description: t('description'),
+    keywords: t('keywords')
+      .split(',')
+      .map((keyword) => keyword.trim())
+      .filter(Boolean),
+    alternates: {
+      canonical: localePath,
+      languages: {
+        ru: '/ru',
+        en: '/en',
+      },
+    },
+    openGraph: {
+      type: 'website',
+      locale,
+      url: localePath,
+      siteName: t('siteName'),
+      title: t('ogTitle'),
+      description: t('ogDescription'),
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: t('ogTitle'),
+      description: t('ogDescription'),
+    },
   };
 }
 

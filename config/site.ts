@@ -1,4 +1,5 @@
 export const siteConfig = {
+  siteUrl: 'https://victoriachikalkina.com',
   social: {
     instagram: 'https://www.instagram.com/victoriachikalkina.piano',
     facebook: 'https://www.facebook.com/share/1BLRZTJnSa/?mibextid=wwXIfr',

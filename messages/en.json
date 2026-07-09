@@ -1,7 +1,17 @@
 {
   "Meta": {
     "title": "Victoria Chikalkina | Pianist",
-    "description": "Official website of pianist Victoria Chikalkina — concerts, repertoire, recordings, and booking."
+    "description": "Official website of pianist Victoria Chikalkina — concerts, repertoire, recordings, and booking.",
+    "keywords": "Victoria Chikalkina, pianist, classical piano, fortepiano, harpsichord, concerts, repertoire",
+    "siteName": "Victoria Chikalkina",
+    "ogTitle": "Victoria Chikalkina | Pianist",
+    "ogDescription": "Concert schedule, repertoire, recordings, and booking information."
+  },
+  "MetaHome": {
+    "title": "Home | Victoria Chikalkina",
+    "description": "Discover upcoming concerts, repertoire, media recordings, and contact details.",
+    "ogTitle": "Victoria Chikalkina - Official Website",
+    "ogDescription": "Explore biography, concert calendar, media, photos, and booking contacts."
   },
   "Site": {
     "name": "Victoria Chikalkina"
