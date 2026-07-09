@@ -10,8 +10,8 @@ export async function ScheduleSection() {
   const t = await getTranslations('Schedule');
   const items = t.raw('items') as ConcertItem[];
   const columns = t.raw('columns') as Record<string, string>;
-  const upcoming = items.filter((item) => !item.isPast);
-  const past = items.filter((item) => item.isPast);
+  const past = items.filter((item) => new Date(item.date) < new Date());
+  const upcoming = items.filter((item) => !past.includes(item));
 
   return (
     <Section id={sectionIds.schedule} variant="muted">
@@ -27,9 +27,7 @@ export async function ScheduleSection() {
 
         {past.length > 0 ? (
           <div>
-            <h3 className="mb-6 font-serif text-xl text-foreground/70 md:text-2xl">
-              {t('past')}
-            </h3>
+            <h3 className="text-foreground/70 mb-6 font-serif text-xl md:text-2xl">{t('past')}</h3>
             <ConcertTable concerts={past} columns={columns} />
           </div>
         ) : null}
