@@ -16,8 +16,14 @@ export interface MediaItem {
   platform?: 'youtube' | 'vimeo' | 'spotify';
 }
 
+export interface RepertoireComposer {
+  id: string;
+  name: string;
+  works: string[];
+}
+
 export interface RepertoireEra {
   id: string;
   title: string;
-  works: string[];
+  composers: RepertoireComposer[];
 }
