@@ -2,7 +2,7 @@
   "Meta": {
     "title": "Victoria Chikalkina | Pianist",
     "description": "Official website of pianist Victoria Chikalkina — concerts, repertoire, recordings, and booking.",
-    "keywords": "Victoria Chikalkina, pianist, classical piano, fortepiano, harpsichord, concerts, repertoire",
+    "keywords": "Victoria Chikalkina, pianist, classical piano, historical fortepiano, harpsichord, concerts, repertoire",
     "siteName": "Victoria Chikalkina",
     "ogTitle": "Victoria Chikalkina | Pianist",
     "ogDescription": "Concert schedule, repertoire, recordings, and booking information."
@@ -60,7 +60,7 @@
         {
           "title": "Immersion in Historical Keyboards (from 2025)",
           "paragraphs": [
-            "From 2025, Victoria Chikalkina opened a new and important chapter in her creative life, beginning to specialise in historical keyboard instruments in Geneva. There she enriches her performing experience, refining her mastery of the fortepiano in the class of Pierre Goy and studying the harpsichord with Constance Thiard."
+            "From 2025, Victoria Chikalkina opened a new and important chapter in her creative life, beginning to specialise in historical keyboard instruments in Geneva. There she enriches her performing experience, refining her mastery of the historical fortepiano in the class of Pierre Goy and studying the harpsichord with Constance Thiard."
           ],
           "listIntro": "Her research and performing interest in authentic sound includes regular work with distinguished historical instruments and replicas by the great makers of the past, including:",
           "items": [
@@ -99,7 +99,7 @@
         "city": "Neuchâtel",
         "venue": "La Collégiale de Neuchâtel, Switzerland",
         "program": "«Schubertiade» · F. Schubert — Piano Trio No. 2",
-        "artists": "Maxim Synytskyi (violin), Denis Poustovgar (cello), Viktoriia Chikalkina (fortepiano)"
+        "artists": "Maxim Synytskyi (violin), Denis Poustovgar (cello), Viktoriia Chikalkina (piano)"
       },
       {
         "id": "geneva-2027-05-14",
