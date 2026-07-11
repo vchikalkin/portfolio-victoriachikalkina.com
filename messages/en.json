@@ -119,21 +119,17 @@
     "items": [
       {
         "id": "1",
-        "title": "Chopin — Ballade No. 1 in G minor",
+        "title": "Robert Schumann — Piano Sonata No. 3 in F minor, Op. 14, 1st movement",
         "type": "video",
-        "platform": "youtube"
+        "platform": "youtube",
+        "embedUrl": "https://www.youtube.com/embed/yx6UAhNmstg"
       },
       {
         "id": "2",
-        "title": "Schumann — Fantasie, Op. 17 (excerpt)",
+        "title": "Claude Debussy — Étude No. 11: Pour les arpèges composés",
         "type": "video",
-        "platform": "vimeo"
-      },
-      {
-        "id": "3",
-        "title": "Rachmaninoff — Prelude in G minor",
-        "type": "audio",
-        "platform": "spotify"
+        "platform": "youtube",
+        "embedUrl": "https://www.youtube.com/embed/Zv-LQu0RKmo"
       }
     ]
   },
@@ -176,10 +172,7 @@
           {
             "id": "cpe-bach",
             "name": "Carl Philipp Emanuel Bach",
-            "works": [
-              "Rondo in C minor, Wq. 59/6",
-              "Fantasia in C major, Wq. 59/4"
-            ]
+            "works": ["Rondo in C minor, Wq. 59/6", "Fantasia in C major, Wq. 59/4"]
           }
         ]
       },
@@ -228,9 +221,7 @@
           {
             "id": "schubert",
             "name": "Franz Schubert",
-            "works": [
-              "Piano Sonata No. 16 in A minor, Op. 42, D. 845"
-            ]
+            "works": ["Piano Sonata No. 16 in A minor, Op. 42, D. 845"]
           },
           {
             "id": "chopin",
@@ -267,10 +258,7 @@
           {
             "id": "franck",
             "name": "César Franck",
-            "works": [
-              "Prélude, Fugue et Variation, Op. 18",
-              "Prélude, Choral et Fugue, FWV 21"
-            ]
+            "works": ["Prélude, Fugue et Variation, Op. 18", "Prélude, Choral et Fugue, FWV 21"]
           },
           {
             "id": "tchaikovsky",
@@ -301,31 +289,22 @@
           {
             "id": "enescu",
             "name": "George Enescu",
-            "works": [
-              "Piano Suite No. 2 in D major, Op. 10"
-            ]
+            "works": ["Piano Suite No. 2 in D major, Op. 10"]
           },
           {
             "id": "pozzoli",
             "name": "Ettore Pozzoli",
-            "works": [
-              "Riflessi del mare",
-              "Trois Études"
-            ]
+            "works": ["Riflessi del mare", "Trois Études"]
           },
           {
             "id": "rautavaara",
             "name": "Einojuhani Rautavaara",
-            "works": [
-              "Étude, Op. 42 No. 4 Kvartit (Fourths)"
-            ]
+            "works": ["Étude, Op. 42 No. 4 Kvartit (Fourths)"]
           },
           {
             "id": "medtner",
             "name": "Nikolai Medtner",
-            "works": [
-              "Forgotten Melodies, Op. 38 (Cycle I)"
-            ]
+            "works": ["Forgotten Melodies, Op. 38 (Cycle I)"]
           },
           {
             "id": "rachmaninoff",
@@ -347,9 +326,7 @@
           {
             "id": "prokofiev",
             "name": "Sergei Prokofiev",
-            "works": [
-              "Piano Sonata No. 2 in D minor, Op. 14"
-            ]
+            "works": ["Piano Sonata No. 2 in D minor, Op. 14"]
           },
           {
             "id": "shostakovich",
@@ -392,37 +369,27 @@
           {
             "id": "beethoven",
             "name": "Ludwig van Beethoven",
-            "works": [
-              "Piano Concerto No. 4 in G major, Op. 58"
-            ]
+            "works": ["Piano Concerto No. 4 in G major, Op. 58"]
           },
           {
             "id": "mendelssohn",
             "name": "Felix Mendelssohn",
-            "works": [
-              "Piano Concerto No. 1 in G minor, Op. 25"
-            ]
+            "works": ["Piano Concerto No. 1 in G minor, Op. 25"]
           },
           {
             "id": "chopin",
             "name": "Frédéric Chopin",
-            "works": [
-              "Piano Concerto No. 1 in E minor, Op. 11"
-            ]
+            "works": ["Piano Concerto No. 1 in E minor, Op. 11"]
           },
           {
             "id": "schumann",
             "name": "Robert Schumann",
-            "works": [
-              "Piano Concerto in A minor, Op. 54"
-            ]
+            "works": ["Piano Concerto in A minor, Op. 54"]
           },
           {
             "id": "tchaikovsky",
             "name": "Pyotr Ilyich Tchaikovsky",
-            "works": [
-              "Piano Concerto No. 2 in G major, Op. 44"
-            ]
+            "works": ["Piano Concerto No. 2 in G major, Op. 44"]
           }
         ]
       },
@@ -433,10 +400,7 @@
           {
             "id": "mozart",
             "name": "Wolfgang Amadeus Mozart",
-            "works": [
-              "Violin Sonata in G major, K. 301",
-              "Violin Sonata in E minor, K. 304"
-            ]
+            "works": ["Violin Sonata in G major, K. 301", "Violin Sonata in E minor, K. 304"]
           },
           {
             "id": "beethoven",
@@ -450,16 +414,12 @@
           {
             "id": "schubert",
             "name": "Franz Schubert",
-            "works": [
-              "Piano Trio No. 2 in E-flat major, Op. 100, D. 929"
-            ]
+            "works": ["Piano Trio No. 2 in E-flat major, Op. 100, D. 929"]
           },
           {
             "id": "mendelssohn",
             "name": "Felix Mendelssohn",
-            "works": [
-              "Cello Sonata No. 2 in D major, Op. 58"
-            ]
+            "works": ["Cello Sonata No. 2 in D major, Op. 58"]
           },
           {
             "id": "brahms",
@@ -472,58 +432,42 @@
           {
             "id": "glinka",
             "name": "Mikhail Glinka",
-            "works": [
-              "Trio Pathétique in D minor (for Clarinet, Bassoon/Cello and Piano)"
-            ]
+            "works": ["Trio Pathétique in D minor (for Clarinet, Bassoon/Cello and Piano)"]
           },
           {
             "id": "dvorak",
             "name": "Antonín Dvořák",
-            "works": [
-              "Violin Sonata in F major, Op. 57"
-            ]
+            "works": ["Violin Sonata in F major, Op. 57"]
           },
           {
             "id": "elgar",
             "name": "Edward Elgar",
-            "works": [
-              "Violin Sonata in E minor, Op. 82"
-            ]
+            "works": ["Violin Sonata in E minor, Op. 82"]
           },
           {
             "id": "respighi",
             "name": "Ottorino Respighi",
-            "works": [
-              "Sonata for Violin and Piano in B minor, P. 110"
-            ]
+            "works": ["Sonata for Violin and Piano in B minor, P. 110"]
           },
           {
             "id": "poulenc",
             "name": "Francis Poulenc",
-            "works": [
-              "Violin Sonata, FP 119"
-            ]
+            "works": ["Violin Sonata, FP 119"]
           },
           {
             "id": "martinu",
             "name": "Bohuslav Martinů",
-            "works": [
-              "Sonata for Flute, Violin and Piano, H. 254"
-            ]
+            "works": ["Sonata for Flute, Violin and Piano, H. 254"]
           },
           {
             "id": "myaskovsky",
             "name": "Nikolai Myaskovsky",
-            "works": [
-              "Cello Sonata No. 2 in A minor, Op. 81"
-            ]
+            "works": ["Cello Sonata No. 2 in A minor, Op. 81"]
           },
           {
             "id": "shostakovich",
             "name": "Dmitri Shostakovich",
-            "works": [
-              "Piano Trio No. 2 in E minor, Op. 67"
-            ]
+            "works": ["Piano Trio No. 2 in E minor, Op. 67"]
           }
         ]
       },
@@ -534,9 +478,7 @@
           {
             "id": "tchaikovsky",
             "name": "Pyotr Ilyich Tchaikovsky",
-            "works": [
-              "Nutcracker Suite, Op. 71a (Arrangement for piano duet)"
-            ]
+            "works": ["Nutcracker Suite, Op. 71a (Arrangement for piano duet)"]
           },
           {
             "id": "grieg",
@@ -549,16 +491,12 @@
           {
             "id": "debussy",
             "name": "Claude Debussy",
-            "works": [
-              "Petite Suite, L. 65 (for piano four-hands)"
-            ]
+            "works": ["Petite Suite, L. 65 (for piano four-hands)"]
           },
           {
             "id": "rachmaninoff",
             "name": "Sergei Rachmaninoff",
-            "works": [
-              "Suite No. 2 for Two Pianos, Op. 17"
-            ]
+            "works": ["Suite No. 2 for Two Pianos, Op. 17"]
           }
         ]
       }
