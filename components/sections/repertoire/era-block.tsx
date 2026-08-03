@@ -1,5 +1,4 @@
 import { ChevronDown } from 'lucide-react';
-import { getTranslations } from 'next-intl/server';
 import { ComposerBlock } from './composer-block';
 
 interface RepertoireComposerItem {
@@ -13,10 +12,8 @@ interface EraBlockProps {
   readonly composers: RepertoireComposerItem[];
 }
 
-export async function EraBlock({ title, composers }: EraBlockProps) {
-  const t = await getTranslations('Repertoire');
+export function EraBlock({ title, composers }: EraBlockProps) {
   const sortedComposers = composers.toSorted((a, b) => b.works.length - a.works.length);
-  const worksCount = sortedComposers.reduce((total, composer) => total + composer.works.length, 0);
   const composerNames = sortedComposers.map((composer) => composer.name).join(', ');
 
   return (
@@ -27,8 +24,6 @@ export async function EraBlock({ title, composers }: EraBlockProps) {
             <h3 className="font-serif text-xl md:text-2xl">{title}</h3>
             <p className="mt-1 text-sm leading-relaxed text-foreground/60 md:text-base">
               {composerNames}
-              <span aria-hidden="true"> · </span>
-              {t('worksCount', { count: worksCount })}
             </p>
           </div>
           <ChevronDown
