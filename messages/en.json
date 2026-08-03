@@ -132,6 +132,7 @@
   "Repertoire": {
     "title": "Repertoire",
     "subtitle": "Selected works",
+    "worksCount": "{count, plural, one {# work} other {# works}}",
     "eras": [
       {
         "id": "baroque-pre-classical",

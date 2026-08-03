@@ -131,6 +131,7 @@
   "Repertoire": {
     "title": "Репертуар",
     "subtitle": "Избранные произведения",
+    "worksCount": "{count, plural, one {# произведение} few {# произведения} many {# произведений} other {# произведений}}",
     "eras": [
       {
         "id": "baroque-pre-classical",
