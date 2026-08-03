@@ -11,7 +11,7 @@ const baseConfig: NextConfig = {
   ...(isStaticExport ? { output: 'export' as const } : {}),
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   images: {
-    formats: ['image/webp'],
+    formats: ['image/avif', 'image/webp'],
   },
 };
 
