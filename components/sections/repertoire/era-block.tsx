@@ -15,8 +15,9 @@ interface EraBlockProps {
 
 export async function EraBlock({ title, composers }: EraBlockProps) {
   const t = await getTranslations('Repertoire');
-  const worksCount = composers.reduce((total, composer) => total + composer.works.length, 0);
-  const composerNames = composers.map((composer) => composer.name).join(', ');
+  const sortedComposers = composers.toSorted((a, b) => b.works.length - a.works.length);
+  const worksCount = sortedComposers.reduce((total, composer) => total + composer.works.length, 0);
+  const composerNames = sortedComposers.map((composer) => composer.name).join(', ');
 
   return (
     <article className="border-t border-border pt-8">
@@ -35,8 +36,8 @@ export async function EraBlock({ title, composers }: EraBlockProps) {
             className="mt-1 size-5 shrink-0 text-foreground/50 transition-transform group-open:rotate-180"
           />
         </summary>
-        <div className="mt-4 space-y-6 pl-4 md:pl-5">
-          {composers.map((composer) => (
+        <div className="mt-4 grid grid-cols-1 gap-6 pl-4 md:grid-cols-2 md:gap-8 md:pl-5">
+          {sortedComposers.map((composer) => (
             <ComposerBlock key={composer.id} composer={composer} />
           ))}
         </div>
