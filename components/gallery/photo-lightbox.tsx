@@ -116,7 +116,7 @@ export function PhotoLightbox({
               src={photo.src}
               alt={photo.alt}
               className="object-contain"
-              sizes="100vw"
+              sizes="(max-width: 1152px) 100vw, 1152px"
             />
           </div>
 
