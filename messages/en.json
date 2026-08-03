@@ -36,45 +36,32 @@
   "Biography": {
     "title": "Biography",
     "content": {
-      "tagline": "Pianist | Performer on Historical Keyboard Instruments",
-      "intro": "Victoria Chikalkina is a pianist who works on the modern grand piano and historical keyboard instruments. She trained in the academic piano repertoire and in historically informed performance (HIP). Her playing focuses on articulation, musical rhetoric, and the character of each instrument she uses.",
+      "tagline": "Pianist | Historical Keyboard Specialist",
+      "intro": [
+        "Victoria Chikalkina performs as a soloist and chamber musician on modern piano, fortepiano, and harpsichord.",
+        "Classical piano remains central to her career. She graduated with honors in 2023 from the Tchaikovsky State Conservatory in Moscow, in the class of Professor Maxim Philippov.",
+        "That same year she received the Swiss Government Excellence Scholarship (ESKAS) for advanced piano studies at the Geneva University of Music (Haute École de Musique de Genève) with Paul Coker and Fabrizio Chiovetta, and with Pierre Goy for clavichord and historical keyboards.",
+        "She has also taken masterclasses with Rena Shereshevskaya, Alexander Kobrin, Laurent Cabasso, Ricardo Castro, Jean-Claude Vanden-Eynden, Elena Kuznetsova, Vera Nosina, Eduardo Delgado, and François Dumont."
+      ],
       "sections": [
         {
-          "title": "Academic Piano Foundation and the Modern Grand Piano",
-          "paragraphs": [
-            "Victoria built her career on classical piano. She studied at the Moscow State Tchaikovsky Conservatory and graduated with honours in 2023 from Professor Maxim Philippov's class.",
-            "In the same year, she received the Swiss Government Excellence Scholarship (ESKAS) to continue her piano studies at the Geneva Haute École de Musique under Paul Kock and Fabrizio Chiovetta."
-          ],
-          "listIntro": "On the modern piano and in chamber ensembles, she has won prizes at Russian and European competitions:",
+          "title": "Prizes & Awards",
+          "paragraphs": [],
           "items": [
-            "Rachmaninoff Days in Moscow — First Prize (Piano and Chamber Ensemble categories, 2015)",
+            "Rachmaninoff Days in Moscow — First Prize (in both Piano and Chamber Ensemble categories, 2015)",
             "MariaFest — Second Prize (Moscow, 2018)",
-            "I Independent Piano Competition — First Prize (Moscow, 2019)",
-            "Val-de-Travers International Piano Competition — Audience Prize (Switzerland, 2021)",
+            "1st Independent Piano Competition — First Prize (Moscow, 2019)",
+            "“Val-de-Travers” International Piano Competition — Audience Prize (Switzerland, 2021)",
             "Rahn Musikpreis — Finalist (Zurich, 2024)",
             "Lavaux Classic Piano Competition — Third Prize (Cully, 2024)",
             "Premio Tchaikovsky — Special Prize (Sobrio, Switzerland, 2025)"
-          ],
-          "closing": "She also studied in masterclasses with Rena Shereshevskaya, Alexander Kobrin, Laurent Cabasso, Ricardo Castro, Jean-Claude Vanden Eynden, Elena Kuznetsova, Vera Nosina, Eduardo Delgado, and François Dumont."
-        },
-        {
-          "title": "Immersion in Historical Keyboards (from 2025)",
-          "paragraphs": [
-            "Since 2025, Victoria has specialised in historical keyboard instruments in Geneva. She studies the historical fortepiano with Pierre Goy and the harpsichord with Constance Thiard."
-          ],
-          "listIntro": "She regularly performs on historical instruments and replicas, including:",
-          "items": [
-            "An instrument by Johann Andreas Stein (1783)",
-            "An instrument by Anton Walter (1805)",
-            "An instrument by Johann Fritz (c. 1830)",
-            "An instrument by Pleyel (c. 1850)"
           ]
         },
         {
-          "title": "Concert Activity",
+          "title": "Concert Career",
           "paragraphs": [
-            "Since 2021, Victoria has been a soloist with the Ryazan Regional Philharmonic. She performs solo and in ensemble on stages in Russia and abroad.",
-            "She has played at Festival de L'Ensemble L'Encyclopédie at the Fondation-Musée Zubov in Geneva, the Sobrio Festival, and Fête de la Musique in Geneva and Neuchâtel (Franz Liszt Hall; Temple du Bas Neuchâtel). She has also performed at the embassies of Switzerland and Iceland in Moscow."
+            "Since 2021, Victoria has been a soloist with the Ryazan Regional Philharmonic. She maintains an active solo and chamber music concert career, performing regularly on international stages.",
+            "She appears at major European musical events and festivals, including the Sobrio Festival, the Fête de la Musique in Geneva and Neuchâtel (Franz Liszt Hall and Temple du Bas), and the Festival de L’Ensemble L’Encyclopédie at the Zubov Foundation-Museum in Geneva (Fondation-Musée Zubov). She has performed at the Embassies of Switzerland and Iceland in Moscow."
           ]
         }
       ]
