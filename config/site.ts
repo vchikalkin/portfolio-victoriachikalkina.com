@@ -27,7 +27,6 @@ export interface NavigationItem {
 }
 
 export const navigationItems: NavigationItem[] = [
-  { id: sectionIds.hero, labelKey: 'home' },
   { id: sectionIds.biography, labelKey: 'biography' },
   { id: sectionIds.schedule, labelKey: 'schedule' },
   { id: sectionIds.media, labelKey: 'media' },

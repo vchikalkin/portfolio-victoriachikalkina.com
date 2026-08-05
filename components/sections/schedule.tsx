@@ -26,8 +26,8 @@ export async function ScheduleSection() {
         ) : null}
 
         {past.length > 0 ? (
-          <div className="hidden md:block">
-            <h3 className="text-foreground/70 mb-6 font-serif text-xl md:text-2xl">{t('past')}</h3>
+          <div>
+            <h3 className="mb-6 font-serif text-xl text-foreground/70 md:text-2xl">{t('past')}</h3>
             <ConcertTable concerts={past} columns={columns} />
           </div>
         ) : null}

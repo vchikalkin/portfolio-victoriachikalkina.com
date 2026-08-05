@@ -25,7 +25,9 @@
     "repertoire": "Repertoire",
     "contact": "Contact",
     "menu": "Menu",
-    "close": "Close"
+    "close": "Close",
+    "mainNav": "Main navigation",
+    "skipToContent": "Skip to content"
   },
   "Hero": {
     "role": "Pianist",
@@ -86,14 +88,15 @@
         "city": "Neuchâtel",
         "venue": "La Collégiale de Neuchâtel, Switzerland",
         "program": "«Schubertiade» · F. Schubert — Piano Trio No. 2",
-        "artists": "Maxim Synytskyi (violin), Denis Poustovgar (cello), Viktoriia Chikalkina (piano)"
+        "artists": "Maxim Synytskyi (violin), Denis Poustovgar (cello), Victoria Chikalkina (piano)"
       },
       {
         "id": "geneva-2027-05-14",
         "date": "2027-05-14",
         "city": "Geneva",
-        "venue": "Geneva, Switzerland",
-        "program": "W. A. Mozart — Piano Concerto No. 12 in A major, K. 414 · performed on a historical fortepiano (replica after Johann Andreas Stein)"
+        "venue": "Conservatoire de Genève, Switzerland",
+        "program": "W. A. Mozart — Piano Concerto No. 12 in A major, K. 414 · performed on a historical fortepiano (replica after Johann Andreas Stein)",
+        "artists": "Victoria Chikalkina (piano, solo)"
       }
     ]
   },

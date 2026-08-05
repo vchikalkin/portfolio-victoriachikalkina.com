@@ -64,7 +64,7 @@ export function Header() {
           : 'bg-transparent text-white',
       )}
     >
-      <Container className="flex h-16 items-center gap-3 lg:h-20 xl:gap-4">
+      <Container className="flex h-16 items-center gap-3 lg:h-20 lg:gap-4">
         <a
           href="#hero"
           className="shrink-0 pr-4 font-serif text-lg tracking-wide lg:pr-6 lg:text-xl xl:pr-8 2xl:pr-12"
@@ -73,26 +73,28 @@ export function Header() {
         </a>
 
         <nav
-          className="hidden min-w-0 flex-1 items-center justify-start gap-2 xl:flex xl:gap-3 2xl:gap-5"
-          aria-label="Main"
+          className="hidden min-w-0 flex-1 items-center justify-start gap-2 lg:flex lg:gap-3 2xl:gap-5"
+          aria-label={t('mainNav')}
         >
-          {navigationItems.map(({ id, labelKey }) => 
-            { return <a
-              key={id}
-              href={`#${id}`}
-              className={cn(
-                'text-sm tracking-wide whitespace-nowrap transition-colors',
-                isSolid
-                  ? 'text-foreground/70 hover:text-foreground'
-                  : 'text-white/70 hover:text-white',
-              )}
-            >
-              {t(labelKey)}
-            </a> }
-          )}
+          {navigationItems.map(({ id, labelKey }) => {
+            return (
+              <a
+                key={id}
+                href={`#${id}`}
+                className={cn(
+                  'text-sm tracking-wide whitespace-nowrap transition-colors',
+                  isSolid
+                    ? 'text-foreground/70 hover:text-foreground'
+                    : 'text-white/70 hover:text-white',
+                )}
+              >
+                {t(labelKey)}
+              </a>
+            );
+          })}
         </nav>
 
-        <div className="hidden shrink-0 items-center gap-2 xl:ml-2 xl:flex 2xl:ml-4">
+        <div className="hidden shrink-0 items-center gap-2 lg:ml-2 lg:flex 2xl:ml-4">
           <ThemeSwitcher variant={controlVariant} />
           <LocaleSwitcher variant={controlVariant} />
         </div>
@@ -100,7 +102,7 @@ export function Header() {
         <Button
           variant="ghost"
           size="icon"
-          className={cn('ml-auto xl:hidden', !isSolid && 'text-white hover:bg-white/10')}
+          className={cn('ml-auto lg:hidden', !isSolid && 'text-white hover:bg-white/10')}
           aria-expanded={isOpen}
           aria-label={isOpen ? t('close') : t('menu')}
           onClick={() => {
@@ -112,20 +114,22 @@ export function Header() {
       </Container>
 
       {isOpen ? (
-        <div className="border-t border-border/60 bg-background xl:hidden">
+        <div className="border-t border-border/60 bg-background lg:hidden">
           <Container className="flex flex-col gap-1 py-6">
-            {navigationItems.map(({ id, labelKey }) => 
-              { return <a
-                key={id}
-                href={`#${id}`}
-                className="py-3 font-serif text-2xl text-foreground"
-                onClick={() => {
-                  setIsOpen(false);
-                }}
-              >
-                {t(labelKey)}
-              </a> }
-            )}
+            {navigationItems.map(({ id, labelKey }) => {
+              return (
+                <a
+                  key={id}
+                  href={`#${id}`}
+                  className="py-3 font-serif text-2xl text-foreground"
+                  onClick={() => {
+                    setIsOpen(false);
+                  }}
+                >
+                  {t(labelKey)}
+                </a>
+              );
+            })}
             <div className="mt-6 flex items-center gap-2 border-t border-border pt-6">
               <ThemeSwitcher variant={controlVariant} />
               <LocaleSwitcher variant={controlVariant} />

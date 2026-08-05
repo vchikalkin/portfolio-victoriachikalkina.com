@@ -5,9 +5,11 @@ import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server
 import type { PropsWithChildren } from 'react';
 import { Footer } from '@/components/layout/footer';
 import { Header } from '@/components/layout/header';
+import { SkipLink } from '@/components/layout/skip-link';
 import { SetHtmlLang } from '@/components/set-html-lang';
 import { siteConfig } from '@/config/site';
 import { routing } from '@/i18n/routing';
+import { getSharedOgImages } from '@/lib/seo';
 
 interface LocaleLayoutProps extends PropsWithChildren {
   readonly params: Promise<{ locale: string }>;
@@ -21,9 +23,7 @@ interface MetadataPageProps {
   readonly params: Promise<{ locale: string }>;
 }
 
-export async function generateMetadata({
-  params,
-}: MetadataPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: MetadataPageProps): Promise<Metadata> {
   const { locale } = await params;
 
   if (!hasLocale(routing.locales, locale)) {
@@ -32,6 +32,7 @@ export async function generateMetadata({
 
   const t = await getTranslations({ locale, namespace: 'Meta' });
   const localePath = `/${locale}`;
+  const ogImages = getSharedOgImages();
 
   return {
     metadataBase: new URL(siteConfig.siteUrl),
@@ -55,11 +56,13 @@ export async function generateMetadata({
       siteName: t('siteName'),
       title: t('ogTitle'),
       description: t('ogDescription'),
+      images: ogImages,
     },
     twitter: {
       card: 'summary_large_image',
       title: t('ogTitle'),
       description: t('ogDescription'),
+      images: ogImages.map((image) => image.url),
     },
   };
 }
@@ -77,6 +80,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
       <SetHtmlLang locale={locale} />
+      <SkipLink />
       <Header />
       {children}
       <Footer />

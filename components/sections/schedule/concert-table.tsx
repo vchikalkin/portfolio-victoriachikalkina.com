@@ -16,9 +16,8 @@ export function ConcertTable({ concerts, columns }: ConcertTableProps) {
 
   return (
     <>
-      {/* Desktop/tablet table */}
       <div className="hidden overflow-x-auto md:block">
-        <table className="w-full min-w-[800px] border-collapse text-left">
+        <table className="w-full border-collapse text-left">
           <thead>
             <tr className="border-b border-border text-xs tracking-[0.15em] text-foreground/50 uppercase">
               <th className="pr-4 pb-4 font-medium">{columns.date}</th>
@@ -36,7 +35,6 @@ export function ConcertTable({ concerts, columns }: ConcertTableProps) {
         </table>
       </div>
 
-      {/* Mobile cards */}
       <div className="space-y-6 md:hidden">
         {concerts.map((concert) => {
           const date = new Date(concert.date);

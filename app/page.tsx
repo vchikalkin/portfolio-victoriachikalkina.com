@@ -1,12 +1,6 @@
-'use client';
-
-import { useEffect } from 'react';
+import { redirect } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 
 export default function RootPage() {
-  useEffect(() => {
-    window.location.replace(`/${routing.defaultLocale}`);
-  }, []);
-
-  return null;
+  redirect(`/${routing.defaultLocale}`);
 }

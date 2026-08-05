@@ -10,6 +10,7 @@ import { PhotosSection } from '@/components/sections/photos';
 import { RepertoireSection } from '@/components/sections/repertoire';
 import { ScheduleSection } from '@/components/sections/schedule';
 import { routing } from '@/i18n/routing';
+import { buildStructuredData, getSharedOgImages } from '@/lib/seo';
 
 interface HomePageProps {
   readonly params: Promise<{ locale: string }>;
@@ -23,6 +24,7 @@ export async function generateMetadata({ params }: HomePageProps): Promise<Metad
   }
 
   const t = await getTranslations({ locale, namespace: 'MetaHome' });
+  const ogImages = getSharedOgImages();
 
   return {
     title: t('title'),
@@ -33,11 +35,13 @@ export async function generateMetadata({ params }: HomePageProps): Promise<Metad
       type: 'website',
       locale,
       url: `/${locale}`,
+      images: ogImages,
     },
     twitter: {
       card: 'summary_large_image',
       title: t('ogTitle'),
       description: t('ogDescription'),
+      images: ogImages.map((image) => image.url),
     },
   };
 }
@@ -51,15 +55,31 @@ export default async function HomePage({ params }: HomePageProps) {
 
   setRequestLocale(locale);
 
+  const tMeta = await getTranslations({ locale, namespace: 'Meta' });
+  const tSite = await getTranslations({ locale, namespace: 'Site' });
+  const structuredData = buildStructuredData({
+    locale,
+    name: tSite('name'),
+    description: tMeta('description'),
+  });
+
   return (
-    <main className="flex-1">
-      <HeroSection />
-      <BiographySection />
-      <ScheduleSection />
-      <MediaSection />
-      <PhotosSection />
-      <RepertoireSection />
-      <ContactSection />
-    </main>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData),
+        }}
+      />
+      <main id="main-content" className="flex-1">
+        <HeroSection />
+        <BiographySection />
+        <ScheduleSection />
+        <MediaSection />
+        <PhotosSection />
+        <RepertoireSection />
+        <ContactSection />
+      </main>
+    </>
   );
 }

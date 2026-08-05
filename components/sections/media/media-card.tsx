@@ -29,14 +29,9 @@ export function MediaCard({ item, placeholder }: MediaCardProps) {
             <span className="text-xs tracking-[0.15em] uppercase">{placeholder}</span>
           </div>
         )}
-        {item.platform ? (
-          <span className="absolute top-3 right-3 text-xs tracking-wider text-foreground/50 uppercase">
-            {item.platform}
-          </span>
-        ) : null}
       </div>
       <div className="p-5">
-        <h3 className="font-serif text-lg leading-snug">{item.title}</h3>
+        <h4 className="font-serif text-lg leading-snug">{item.title}</h4>
       </div>
     </article>
   );

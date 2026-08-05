@@ -11,7 +11,7 @@ export async function HeroSection() {
   const tSite = await getTranslations('Site');
   const tSchedule = await getTranslations('Schedule');
   const concerts = tSchedule.raw('items') as ConcertItem[];
-  const nextConcert = concerts.find((item) => !item.isPast);
+  const nextConcert = concerts.find((item) => new Date(item.date) >= new Date());
   const heroImage = getHeroImage();
 
   return (
