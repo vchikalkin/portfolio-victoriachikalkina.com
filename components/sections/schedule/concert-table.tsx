@@ -1,6 +1,7 @@
 import { useFormatter } from 'next-intl';
 import { ConcertRow } from '@/components/sections/schedule/concert-row';
 import type { ConcertItem } from '@/lib/types/content';
+import { cn } from '@/lib/utils';
 
 interface ConcertTableProps {
   readonly concerts: ConcertItem[];
@@ -43,31 +44,27 @@ export function ConcertTable({ concerts, columns }: ConcertTableProps) {
           return (
             <div
               key={concert.id}
-              className="rounded-lg border border-border bg-secondary/40 p-4 text-sm"
+              className="rounded-lg border border-border bg-secondary/40 p-4"
             >
-              <div className="mb-0.5 font-serif text-lg tabular-nums">{displayDate}</div>
-              <div className="mt-3">
-                <div className="mb-1">
-                  <span className="block text-xs text-foreground/50">{columns.city}</span>
-                  <span className="font-medium">{concert.city}</span>
-                </div>
-                <div className="mb-1">
-                  <span className="block text-xs text-foreground/50">{columns.venue}</span>
-                  <span>{concert.venue}</span>
-                </div>
-                {concert.artists ? (
-                  <div className="mb-1">
-                    <span className="block text-xs text-foreground/50">{columns.artists}</span>
-                    <span className="text-pretty">{concert.artists}</span>
-                  </div>
-                ) : null}
-                {concert.program ? (
-                  <div>
-                    <span className="block text-xs text-foreground/50">{columns.program}</span>
-                    <span className="text-pretty">{concert.program}</span>
-                  </div>
-                ) : null}
-              </div>
+              <p className="font-serif text-2xl tabular-nums">{displayDate}</p>
+              <p className="mt-2 text-pretty text-foreground/80">
+                {concert.city} · {concert.venue}
+              </p>
+              {concert.artists ? (
+                <p className="mt-3 text-sm leading-relaxed text-pretty text-foreground/60">
+                  {concert.artists}
+                </p>
+              ) : null}
+              {concert.program ? (
+                <p
+                  className={cn(
+                    'text-sm leading-relaxed text-pretty text-foreground/60',
+                    concert.artists ? 'mt-2' : 'mt-3',
+                  )}
+                >
+                  {concert.program}
+                </p>
+              ) : null}
             </div>
           );
         })}
