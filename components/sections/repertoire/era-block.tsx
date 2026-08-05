@@ -12,9 +12,17 @@ interface EraBlockProps {
   readonly composers: RepertoireComposerItem[];
 }
 
+const MAX_PREVIEW_COMPOSERS = 2;
+
 export function EraBlock({ title, composers }: EraBlockProps) {
   const sortedComposers = composers.toSorted((a, b) => b.works.length - a.works.length);
-  const composerNames = sortedComposers.map((composer) => composer.name).join(', ');
+  const previewNames = sortedComposers
+    .slice(0, MAX_PREVIEW_COMPOSERS)
+    .map((composer) => composer.name);
+  const composerNames =
+    sortedComposers.length > MAX_PREVIEW_COMPOSERS
+      ? `${previewNames.join(', ')}…`
+      : previewNames.join(', ');
 
   return (
     <article className="border-t border-border pt-8">
