@@ -4,10 +4,10 @@ export type SiteControlVariant = 'default' | 'overlay';
 
 export function siteControlShellClassName(variant: SiteControlVariant) {
   return cn(
-    'flex gap-1 rounded-full border p-1 text-sm backdrop-blur',
+    'flex gap-1 rounded-full border p-1 text-sm',
     variant === 'overlay'
       ? 'border-white/20 bg-white/10 text-white'
-      : 'border-border bg-background/90',
+      : 'border-border bg-background/95',
   );
 }
 

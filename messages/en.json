@@ -74,6 +74,8 @@
     "subtitle": "Upcoming & recent performances",
     "upcoming": "Upcoming",
     "past": "Past",
+    "empty": "No concerts listed yet.",
+    "emptyAction": "Get in touch to book a performance",
     "columns": {
       "date": "Date",
       "city": "City",
@@ -130,7 +132,9 @@
     "openPhoto": "Open photo",
     "close": "Close",
     "previous": "Previous photo",
-    "next": "Next photo"
+    "next": "Next photo",
+    "empty": "No photos yet.",
+    "emptyAction": "Request press materials"
   },
   "Repertoire": {
     "title": "Repertoire",

@@ -3,7 +3,7 @@
 import { Menu, X } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useTheme } from 'next-themes';
-import { useEffect, useState, useSyncExternalStore } from 'react';
+import { useEffect, useId, useState, useSyncExternalStore } from 'react';
 import { LocaleSwitcher } from '@/components/locale-switcher';
 import { ThemeSwitcher } from '@/components/theme-switcher';
 import { Button } from '@/components/ui/button';
@@ -37,6 +37,7 @@ export function Header() {
   const { resolvedTheme } = useTheme();
   const isThemeMounted = useIsClientMounted();
   const [isOpen, setIsOpen] = useState(false);
+  const menuId = useId();
   const isScrolled = useSyncExternalStore(
     subscribeToScroll,
     getScrollSnapshot,
@@ -58,16 +59,16 @@ export function Header() {
   return (
     <header
       className={cn(
-        'fixed inset-x-0 top-0 z-50 transition-colors duration-300',
+        'fixed inset-x-0 top-0 z-header pt-[env(safe-area-inset-top)]',
         isSolid
-          ? 'border-b border-border/60 bg-background/90 text-foreground backdrop-blur-md'
+          ? 'border-b border-border/60 bg-background/95 text-foreground'
           : 'bg-transparent text-white',
       )}
     >
       <Container className="flex h-16 items-center gap-3 lg:h-20 lg:gap-4">
         <a
           href="#hero"
-          className="shrink-0 pr-4 font-serif text-lg tracking-wide lg:pr-6 lg:text-xl xl:pr-8 2xl:pr-12"
+          className="shrink-0 pr-4 font-serif text-lg lg:pr-6 lg:text-xl xl:pr-8 2xl:pr-12"
         >
           {tSite('name')}
         </a>
@@ -82,7 +83,7 @@ export function Header() {
                 key={id}
                 href={`#${id}`}
                 className={cn(
-                  'text-sm tracking-wide whitespace-nowrap transition-colors',
+                  'text-sm whitespace-nowrap',
                   isSolid
                     ? 'text-foreground/70 hover:text-foreground'
                     : 'text-white/70 hover:text-white',
@@ -104,6 +105,7 @@ export function Header() {
           size="icon"
           className={cn('ml-auto lg:hidden', !isSolid && 'text-white hover:bg-white/10')}
           aria-expanded={isOpen}
+          aria-controls={menuId}
           aria-label={isOpen ? t('close') : t('menu')}
           onClick={() => {
             setIsOpen((open) => !open);
@@ -114,14 +116,17 @@ export function Header() {
       </Container>
 
       {isOpen ? (
-        <div className="border-t border-border/60 bg-background lg:hidden">
+        <div
+          id={menuId}
+          className="border-t border-border/60 bg-background pb-[env(safe-area-inset-bottom)] lg:hidden"
+        >
           <Container className="flex flex-col gap-1 py-6">
             {navigationItems.map(({ id, labelKey }) => {
               return (
                 <a
                   key={id}
                   href={`#${id}`}
-                  className="py-3 font-serif text-2xl text-foreground"
+                  className="py-3 font-serif text-2xl text-balance text-foreground"
                   onClick={() => {
                     setIsOpen(false);
                   }}
@@ -131,8 +136,8 @@ export function Header() {
               );
             })}
             <div className="mt-6 flex items-center gap-2 border-t border-border pt-6">
-              <ThemeSwitcher variant={controlVariant} />
-              <LocaleSwitcher variant={controlVariant} />
+              <ThemeSwitcher />
+              <LocaleSwitcher />
             </div>
           </Container>
         </div>

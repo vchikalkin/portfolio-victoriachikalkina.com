@@ -12,6 +12,7 @@ export async function ScheduleSection() {
   const columns = t.raw('columns') as Record<string, string>;
   const past = items.filter((item) => new Date(item.date) < new Date());
   const upcoming = items.filter((item) => !past.includes(item));
+  const hasConcerts = upcoming.length > 0 || past.length > 0;
 
   return (
     <Section id={sectionIds.schedule} variant="muted">
@@ -20,17 +21,31 @@ export async function ScheduleSection() {
 
         {upcoming.length > 0 ? (
           <div className="mb-16">
-            <h3 className="mb-6 font-serif text-xl md:text-2xl">{t('upcoming')}</h3>
+            <h3 className="mb-6 font-serif text-xl text-balance md:text-2xl">{t('upcoming')}</h3>
             <ConcertTable concerts={upcoming} columns={columns} />
           </div>
         ) : null}
 
         {past.length > 0 ? (
           <div>
-            <h3 className="mb-6 font-serif text-xl text-foreground/70 md:text-2xl">{t('past')}</h3>
+            <h3 className="mb-6 font-serif text-xl text-balance text-foreground/70 md:text-2xl">
+              {t('past')}
+            </h3>
             <ConcertTable concerts={past} columns={columns} />
           </div>
         ) : null}
+
+        {hasConcerts ? null : (
+          <div className="max-w-md">
+            <p className="text-base text-pretty text-foreground/70">{t('empty')}</p>
+            <a
+              href={`#${sectionIds.contact}`}
+              className="mt-4 inline-block text-sm font-medium text-foreground underline-offset-4 hover:underline"
+            >
+              {t('emptyAction')}
+            </a>
+          </div>
+        )}
       </Container>
     </Section>
   );

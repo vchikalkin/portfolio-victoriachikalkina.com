@@ -77,10 +77,9 @@ export function PhotoGallery({ photos, labels }: PhotoGalleryProps) {
                 fill
                 src={photo.src}
                 alt={photo.alt}
-                className="object-cover transition-transform duration-500 motion-safe:group-hover:scale-105"
+                className="object-cover"
                 sizes="(max-width: 768px) 50vw, 33vw"
               />
-              <div className="absolute inset-0 bg-black/0 transition-colors group-hover:bg-black/15" />
             </button>
           );
         })}

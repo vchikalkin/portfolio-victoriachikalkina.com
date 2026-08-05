@@ -63,7 +63,7 @@ export function PhotoLightbox({
   };
 
   return (
-    <div className="fixed inset-0 z-[100]">
+    <div className="fixed inset-0 z-overlay">
       <button
         type="button"
         className="absolute inset-0 bg-black/95"
@@ -74,14 +74,14 @@ export function PhotoLightbox({
       <dialog
         ref={dialogRef}
         aria-label={photo.alt}
-        className="relative z-10 m-0 flex size-full max-h-none max-w-none flex-col border-0 bg-transparent p-0"
+        className="relative z-10 m-0 flex size-full max-h-none max-w-none flex-col border-0 bg-transparent p-0 pt-[env(safe-area-inset-top)] pr-[env(safe-area-inset-right)] pb-[env(safe-area-inset-bottom)] pl-[env(safe-area-inset-left)]"
         onCancel={(event) => {
           event.preventDefault();
           onClose();
         }}
       >
         <div className="flex items-center justify-between px-4 py-3 md:px-6">
-          <p className="text-sm text-white/70">
+          <p className="text-sm text-white/70 tabular-nums">
             {index + 1} / {photos.length}
           </p>
           <Button

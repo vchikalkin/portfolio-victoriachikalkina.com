@@ -20,7 +20,7 @@ export async function BiographySection() {
               {content.intro.map((paragraph) => 
                 { return <p
                   key={paragraph.slice(0, 40)}
-                  className="text-base leading-relaxed text-foreground/80 md:text-lg"
+                  className="text-base leading-relaxed text-pretty text-foreground/80 md:text-lg"
                 >
                   {paragraph}
                 </p> }

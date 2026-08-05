@@ -54,6 +54,9 @@
   --color-ring: var(--ring);
   --font-sans: var(--font-source-sans);
   --font-serif: var(--font-playfair);
+  --z-index-header: 50;
+  --z-index-skip: 60;
+  --z-index-overlay: 100;
 }
 
 body {

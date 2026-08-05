@@ -26,12 +26,12 @@ export function MediaCard({ item, placeholder }: MediaCardProps) {
         ) : (
           <div className="flex size-full flex-col items-center justify-center gap-3 text-foreground/40">
             {isVideo ? <Play className="size-10" /> : <Music2 className="size-10" />}
-            <span className="text-xs tracking-[0.15em] uppercase">{placeholder}</span>
+            <span className="text-xs uppercase">{placeholder}</span>
           </div>
         )}
       </div>
       <div className="p-5">
-        <h4 className="font-serif text-lg leading-snug">{item.title}</h4>
+        <h4 className="font-serif text-lg leading-snug text-balance">{item.title}</h4>
       </div>
     </article>
   );

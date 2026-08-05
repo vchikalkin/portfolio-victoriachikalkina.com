@@ -19,7 +19,7 @@ export async function MediaSection() {
 
         {videos.length > 0 ? (
           <div className="mb-16">
-            <h3 className="mb-6 font-serif text-xl md:text-2xl">{t('videoTab')}</h3>
+            <h3 className="mb-6 font-serif text-xl text-balance md:text-2xl">{t('videoTab')}</h3>
             <div className="grid gap-6 md:grid-cols-2">
               {videos.map((item) => (
                 <MediaCard key={item.id} item={item} placeholder={t('placeholder')} />
@@ -30,7 +30,7 @@ export async function MediaSection() {
 
         {audio.length > 0 ? (
           <div>
-            <h3 className="mb-6 font-serif text-xl md:text-2xl">{t('audioTab')}</h3>
+            <h3 className="mb-6 font-serif text-xl text-balance md:text-2xl">{t('audioTab')}</h3>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {audio.map((item) => (
                 <MediaCard key={item.id} item={item} placeholder={t('placeholder')} />

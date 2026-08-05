@@ -17,7 +17,7 @@ export async function HeroSection() {
   return (
     <section
       id={sectionIds.hero}
-      className="relative flex min-h-svh items-end overflow-hidden bg-zinc-950 text-white"
+      className="relative flex min-h-dvh items-end overflow-hidden bg-zinc-950 text-white"
     >
       {heroImage ? (
         <SiteImage
@@ -30,20 +30,13 @@ export async function HeroSection() {
         />
       ) : null}
 
-      <div
-        aria-hidden
-        className="absolute inset-0 bg-linear-to-t from-zinc-950 via-zinc-950/70 to-zinc-900/40"
-      />
-      <div
-        aria-hidden
-        className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(255,255,255,0.08),transparent_50%)]"
-      />
+      <div aria-hidden className="absolute inset-0 bg-zinc-950/70" />
 
       <Container className="relative z-10 pt-32 pb-16 md:pt-40 md:pb-24">
         <div className="grid gap-12 lg:grid-cols-[1fr_auto] lg:items-end">
           <div className="max-w-3xl">
-            <p className="mb-4 text-sm tracking-[0.25em] text-white/60 uppercase">{t('role')}</p>
-            <h1 className="font-serif text-5xl leading-none tracking-tight md:text-7xl lg:text-8xl">
+            <p className="mb-4 text-sm text-white/60 uppercase">{t('role')}</p>
+            <h1 className="font-serif text-5xl leading-none text-balance md:text-7xl lg:text-8xl">
               {tSite('name')}
             </h1>
           </div>

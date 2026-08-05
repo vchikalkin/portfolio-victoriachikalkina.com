@@ -19,7 +19,7 @@ export function ConcertTable({ concerts, columns }: ConcertTableProps) {
       <div className="hidden overflow-x-auto md:block">
         <table className="w-full border-collapse text-left">
           <thead>
-            <tr className="border-b border-border text-xs tracking-[0.15em] text-foreground/50 uppercase">
+            <tr className="border-b border-border text-xs text-foreground/50 uppercase">
               <th className="pr-4 pb-4 font-medium">{columns.date}</th>
               <th className="pr-4 pb-4 font-medium">{columns.city}</th>
               <th className="pr-4 pb-4 font-medium">{columns.venue}</th>
@@ -43,9 +43,9 @@ export function ConcertTable({ concerts, columns }: ConcertTableProps) {
           return (
             <div
               key={concert.id}
-              className="rounded-lg border border-border bg-white/5 p-4 text-sm backdrop-blur-sm"
+              className="rounded-lg border border-border bg-secondary/40 p-4 text-sm"
             >
-              <div className="mb-0.5 font-serif text-lg">{displayDate}</div>
+              <div className="mb-0.5 font-serif text-lg tabular-nums">{displayDate}</div>
               <div className="mt-3">
                 <div className="mb-1">
                   <span className="block text-xs text-foreground/50">{columns.city}</span>
@@ -58,13 +58,13 @@ export function ConcertTable({ concerts, columns }: ConcertTableProps) {
                 {concert.artists ? (
                   <div className="mb-1">
                     <span className="block text-xs text-foreground/50">{columns.artists}</span>
-                    <span>{concert.artists}</span>
+                    <span className="text-pretty">{concert.artists}</span>
                   </div>
                 ) : null}
                 {concert.program ? (
                   <div>
                     <span className="block text-xs text-foreground/50">{columns.program}</span>
-                    <span>{concert.program}</span>
+                    <span className="text-pretty">{concert.program}</span>
                   </div>
                 ) : null}
               </div>
