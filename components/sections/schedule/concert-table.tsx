@@ -20,7 +20,7 @@ export function ConcertTable({ concerts, columns }: ConcertTableProps) {
       <div className="hidden overflow-x-auto md:block">
         <table className="w-full min-w-[800px] border-collapse text-left">
           <thead>
-            <tr className="border-border text-foreground/50 border-b text-xs tracking-[0.15em] uppercase">
+            <tr className="border-b border-border text-xs tracking-[0.15em] text-foreground/50 uppercase">
               <th className="pr-4 pb-4 font-medium">{columns.date}</th>
               <th className="pr-4 pb-4 font-medium">{columns.city}</th>
               <th className="pr-4 pb-4 font-medium">{columns.venue}</th>
@@ -45,27 +45,27 @@ export function ConcertTable({ concerts, columns }: ConcertTableProps) {
           return (
             <div
               key={concert.id}
-              className="border-border rounded-lg border bg-white/5 p-4 text-sm shadow-sm backdrop-blur-sm"
+              className="rounded-lg border border-border bg-white/5 p-4 text-sm backdrop-blur-sm"
             >
               <div className="mb-0.5 font-serif text-lg">{displayDate}</div>
               <div className="mt-3">
                 <div className="mb-1">
-                  <span className="text-foreground/50 block text-xs">{columns.city}</span>
+                  <span className="block text-xs text-foreground/50">{columns.city}</span>
                   <span className="font-medium">{concert.city}</span>
                 </div>
                 <div className="mb-1">
-                  <span className="text-foreground/50 block text-xs">{columns.venue}</span>
+                  <span className="block text-xs text-foreground/50">{columns.venue}</span>
                   <span>{concert.venue}</span>
                 </div>
                 {concert.artists ? (
                   <div className="mb-1">
-                    <span className="text-foreground/50 block text-xs">{columns.artists}</span>
+                    <span className="block text-xs text-foreground/50">{columns.artists}</span>
                     <span>{concert.artists}</span>
                   </div>
                 ) : null}
                 {concert.program ? (
                   <div>
-                    <span className="text-foreground/50 block text-xs">{columns.program}</span>
+                    <span className="block text-xs text-foreground/50">{columns.program}</span>
                     <span>{concert.program}</span>
                   </div>
                 ) : null}
