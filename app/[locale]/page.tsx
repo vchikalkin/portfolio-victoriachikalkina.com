@@ -15,7 +15,6 @@ import {
   getLocalePath,
   getOgAlternateLocales,
   getOgLocale,
-  getSharedOgImages,
 } from '@/lib/seo';
 import type { ConcertItem } from '@/lib/types/content';
 
@@ -35,9 +34,9 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: 'MetaHome' });
   const tMeta = await getTranslations({ locale, namespace: 'Meta' });
   const localePath = getLocalePath(locale);
-  const ogImages = getSharedOgImages();
 
   // Full openGraph/twitter objects — Next replaces nested metadata from the layout.
+  // No og:image / twitter:image so messengers (Telegram, etc.) show a text-only preview.
   return {
     title: {
       absolute: t('title'),
@@ -51,13 +50,11 @@ export async function generateMetadata({
       siteName: tMeta('siteName'),
       title: t('ogTitle'),
       description: t('ogDescription'),
-      images: ogImages,
     },
     twitter: {
-      card: 'summary_large_image',
+      card: 'summary',
       title: t('ogTitle'),
       description: t('ogDescription'),
-      images: ogImages.map((image) => image.url),
     },
   };
 }

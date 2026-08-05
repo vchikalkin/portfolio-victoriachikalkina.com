@@ -14,7 +14,6 @@ import {
   getLocalePath,
   getOgAlternateLocales,
   getOgLocale,
-  getSharedOgImages,
 } from '@/lib/seo';
 
 interface LocaleLayoutProps extends PropsWithChildren {
@@ -40,7 +39,6 @@ export async function generateMetadata({
 
   const t = await getTranslations({ locale, namespace: 'Meta' });
   const localePath = getLocalePath(locale);
-  const ogImages = getSharedOgImages();
 
   return {
     metadataBase: new URL(siteConfig.siteUrl),
@@ -75,13 +73,11 @@ export async function generateMetadata({
       siteName: t('siteName'),
       title: t('ogTitle'),
       description: t('ogDescription'),
-      images: ogImages,
     },
     twitter: {
-      card: 'summary_large_image',
+      card: 'summary',
       title: t('ogTitle'),
       description: t('ogDescription'),
-      images: ogImages.map((image) => image.url),
     },
   };
 }

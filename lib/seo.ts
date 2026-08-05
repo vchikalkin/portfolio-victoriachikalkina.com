@@ -11,23 +11,11 @@ const ogLocaleByLocale: Record<string, string> = {
   fr: 'fr_FR',
 };
 
+/** Used in JSON-LD Person schema only — not exposed as og:image link previews. */
 export function getOgImageUrl(): string {
   const heroImage = getHeroImage() ?? '/hero/IMG_1468.jpg';
 
   return new URL(heroImage, siteConfig.siteUrl).toString();
-}
-
-export function getSharedOgImages() {
-  const url = getOgImageUrl();
-
-  return [
-    {
-      url,
-      width: 1200,
-      height: 630,
-      alt: 'Victoria Chikalkina at the piano',
-    },
-  ];
 }
 
 /** Relative locale path — resolved against metadataBase for canonical/hreflang. */
