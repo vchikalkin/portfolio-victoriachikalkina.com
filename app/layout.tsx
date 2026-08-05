@@ -21,6 +21,8 @@ export default function RootLayout({
   return (
     <html
       suppressHydrationWarning
+      // Default until [locale] layout corrects via inline script + SetHtmlLang.
+      // Must match the primary/x-default locale (English).
       lang={routing.defaultLocale}
       className={`${sourceSans.variable} ${playfair.variable} h-full antialiased`}
     >

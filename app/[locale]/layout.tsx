@@ -9,7 +9,13 @@ import { SkipLink } from '@/components/layout/skip-link';
 import { SetHtmlLang } from '@/components/set-html-lang';
 import { siteConfig } from '@/config/site';
 import { routing } from '@/i18n/routing';
-import { getSharedOgImages } from '@/lib/seo';
+import {
+  getLanguageAlternates,
+  getLocalePath,
+  getOgAlternateLocales,
+  getOgLocale,
+  getSharedOgImages,
+} from '@/lib/seo';
 
 interface LocaleLayoutProps extends PropsWithChildren {
   readonly params: Promise<{ locale: string }>;
@@ -23,7 +29,9 @@ interface MetadataPageProps {
   readonly params: Promise<{ locale: string }>;
 }
 
-export async function generateMetadata({ params }: MetadataPageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: MetadataPageProps): Promise<Metadata> {
   const { locale } = await params;
 
   if (!hasLocale(routing.locales, locale)) {
@@ -31,27 +39,38 @@ export async function generateMetadata({ params }: MetadataPageProps): Promise<M
   }
 
   const t = await getTranslations({ locale, namespace: 'Meta' });
-  const localePath = `/${locale}`;
+  const localePath = getLocalePath(locale);
   const ogImages = getSharedOgImages();
 
   return {
     metadataBase: new URL(siteConfig.siteUrl),
-    title: t('title'),
+    title: {
+      default: t('title'),
+      template: `%s | ${t('siteName')}`,
+    },
     description: t('description'),
     keywords: t('keywords')
       .split(',')
       .map((keyword) => keyword.trim())
       .filter(Boolean),
+    authors: [{ name: t('siteName'), url: localePath }],
+    creator: t('siteName'),
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+      },
+    },
     alternates: {
       canonical: localePath,
-      languages: {
-        ru: '/ru',
-        en: '/en',
-      },
+      languages: getLanguageAlternates(),
     },
     openGraph: {
       type: 'website',
-      locale,
+      locale: getOgLocale(locale),
+      alternateLocale: getOgAlternateLocales(locale),
       url: localePath,
       siteName: t('siteName'),
       title: t('ogTitle'),
@@ -67,7 +86,10 @@ export async function generateMetadata({ params }: MetadataPageProps): Promise<M
   };
 }
 
-export default async function LocaleLayout({ children, params }: LocaleLayoutProps) {
+export default async function LocaleLayout({
+  children,
+  params,
+}: LocaleLayoutProps) {
   const { locale } = await params;
 
   if (!hasLocale(routing.locales, locale)) {
@@ -79,6 +101,15 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
 
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
+      {/*
+        Root layout cannot read [locale], so html[lang] starts as defaultLocale.
+        This inline script corrects lang before paint for crawlers and a11y.
+      */}
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `document.documentElement.lang=${JSON.stringify(locale)};`,
+        }}
+      />
       <SetHtmlLang locale={locale} />
       <SkipLink />
       <Header />

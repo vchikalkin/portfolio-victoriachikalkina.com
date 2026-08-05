@@ -14,7 +14,8 @@
     "ogDescription": "Biography, concert calendar, media, photos, and booking contacts."
   },
   "Site": {
-    "name": "Victoria Chikalkina"
+    "name": "Victoria Chikalkina",
+    "jobTitle": "Pianist"
   },
   "Navigation": {
     "home": "Home",

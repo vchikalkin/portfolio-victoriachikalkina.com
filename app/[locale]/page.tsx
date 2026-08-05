@@ -10,13 +10,22 @@ import { PhotosSection } from '@/components/sections/photos';
 import { RepertoireSection } from '@/components/sections/repertoire';
 import { ScheduleSection } from '@/components/sections/schedule';
 import { routing } from '@/i18n/routing';
-import { buildStructuredData, getSharedOgImages } from '@/lib/seo';
+import {
+  buildStructuredData,
+  getLocalePath,
+  getOgAlternateLocales,
+  getOgLocale,
+  getSharedOgImages,
+} from '@/lib/seo';
+import type { ConcertItem } from '@/lib/types/content';
 
 interface HomePageProps {
   readonly params: Promise<{ locale: string }>;
 }
 
-export async function generateMetadata({ params }: HomePageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: HomePageProps): Promise<Metadata> {
   const { locale } = await params;
 
   if (!hasLocale(routing.locales, locale)) {
@@ -24,17 +33,24 @@ export async function generateMetadata({ params }: HomePageProps): Promise<Metad
   }
 
   const t = await getTranslations({ locale, namespace: 'MetaHome' });
+  const tMeta = await getTranslations({ locale, namespace: 'Meta' });
+  const localePath = getLocalePath(locale);
   const ogImages = getSharedOgImages();
 
+  // Full openGraph/twitter objects — Next replaces nested metadata from the layout.
   return {
-    title: t('title'),
+    title: {
+      absolute: t('title'),
+    },
     description: t('description'),
     openGraph: {
+      type: 'website',
+      locale: getOgLocale(locale),
+      alternateLocale: getOgAlternateLocales(locale),
+      url: localePath,
+      siteName: tMeta('siteName'),
       title: t('ogTitle'),
       description: t('ogDescription'),
-      type: 'website',
-      locale,
-      url: `/${locale}`,
       images: ogImages,
     },
     twitter: {
@@ -57,10 +73,18 @@ export default async function HomePage({ params }: HomePageProps) {
 
   const tMeta = await getTranslations({ locale, namespace: 'Meta' });
   const tSite = await getTranslations({ locale, namespace: 'Site' });
+  const tSchedule = await getTranslations({ locale, namespace: 'Schedule' });
+  const concerts = tSchedule.raw('items') as ConcertItem[];
+  const upcomingConcerts = concerts.filter(
+    (item) => new Date(item.date) >= new Date(),
+  );
+
   const structuredData = buildStructuredData({
     locale,
     name: tSite('name'),
     description: tMeta('description'),
+    jobTitle: tSite('jobTitle'),
+    upcomingConcerts,
   });
 
   return (
