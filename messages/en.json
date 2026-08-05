@@ -328,7 +328,7 @@
             "name": "Carl Vine",
             "works": [
               "Piano Sonata No. 2",
-              "The Anne Landa Preludes: No. 1 Short Variations and No. 2 Impromptu"
+              "The Anne Landa Preludes: No. 1 Short Story and No. 2 Filgree"
             ]
           }
         ]
@@ -434,7 +434,7 @@
           {
             "id": "respighi",
             "name": "Ottorino Respighi",
-            "works": ["Sonata for Violin and Piano in B minor, P. 110"]
+            "works": ["Sonata for violin and piano in B Minor, P. 110"]
           },
           {
             "id": "poulenc",
@@ -472,7 +472,7 @@
             "name": "Edvard Grieg",
             "works": [
               "Peer Gynt Suite No. 1, Op. 46 (Arrangement for piano duet)",
-              "Peer Gynt Suite No. 2, Op. 55 (Arrangement for piano duet)"
+              "Peer Gynt Suite No. 2, Op. 55"
             ]
           },
           {
