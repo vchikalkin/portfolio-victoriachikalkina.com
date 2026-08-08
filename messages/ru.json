@@ -123,6 +123,13 @@
         "type": "video",
         "platform": "youtube",
         "embedUrl": "https://www.youtube.com/embed/Zv-LQu0RKmo"
+      },
+      {
+        "id": "3",
+        "title": "Дмитрий Шостакович — Фортепианное трио № 2 ми минор, соч. 67",
+        "type": "video",
+        "platform": "youtube",
+        "embedUrl": "https://www.youtube.com/embed/A47YeFoI5nw"
       }
     ]
   },

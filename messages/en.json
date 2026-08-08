@@ -123,6 +123,13 @@
         "type": "video",
         "platform": "youtube",
         "embedUrl": "https://www.youtube.com/embed/Zv-LQu0RKmo"
+      },
+      {
+        "id": "3",
+        "title": "Dmitri Shostakovich — Piano Trio No. 2 in E minor, Op. 67",
+        "type": "video",
+        "platform": "youtube",
+        "embedUrl": "https://www.youtube.com/embed/A47YeFoI5nw"
       }
     ]
   },
