@@ -17,11 +17,11 @@ export function NextConcertBlock({ nextConcert, t }: NextConcertBlockProps) {
 
   return (
     <aside className="max-w-md border border-white/15 bg-white/10 p-6 md:p-8">
-      <div className="mb-4 flex items-center gap-2 text-sm text-white/60 uppercase">
-        <Calendar className="size-4" />
+      <div className="mb-4 flex items-center gap-2 text-sm text-white/60">
+        <Calendar className="size-4" aria-hidden="true" />
         {t('nextConcertLabel')}
       </div>
-      <p className="font-serif text-2xl tabular-nums">{displayDate}</p>
+      <p className="font-sans text-2xl lining-nums tabular-nums">{displayDate}</p>
       <p className="mt-2 text-pretty text-white/80">
         {nextConcert.city} · {nextConcert.venue}
       </p>

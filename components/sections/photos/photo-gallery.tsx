@@ -78,8 +78,15 @@ export function PhotoGallery({ photos, labels }: PhotoGalleryProps) {
                 fill
                 src={photo.src}
                 alt={photo.alt}
-                className={cn('object-cover', photo.objectPositionClass)}
                 sizes="(max-width: 768px) 50vw, 33vw"
+                className={cn(
+                  'object-cover transition-transform duration-200 ease-out group-hover:scale-[1.03]',
+                  photo.objectPositionClass,
+                )}
+              />
+              <span
+                aria-hidden="true"
+                className="absolute inset-0 bg-black/20 opacity-0 transition-opacity duration-200 ease-out group-hover:opacity-100"
               />
             </button>
           );

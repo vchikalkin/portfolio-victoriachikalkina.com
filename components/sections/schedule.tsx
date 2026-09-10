@@ -1,5 +1,5 @@
 import { getTranslations } from 'next-intl/server';
-import { ConcertTable } from '@/components/sections/schedule/concert-table';
+import { ConcertList } from '@/components/sections/schedule/concert-list';
 import { Container } from '@/components/ui/container';
 import { Section } from '@/components/ui/section';
 import { SectionHeading } from '@/components/ui/section-heading';
@@ -9,10 +9,10 @@ import type { ConcertItem } from '@/lib/types/content';
 export async function ScheduleSection() {
   const t = await getTranslations('Schedule');
   const items = t.raw('items') as ConcertItem[];
-  const columns = t.raw('columns') as Record<string, string>;
   const past = items.filter((item) => new Date(item.date) < new Date());
   const upcoming = items.filter((item) => !past.includes(item));
   const hasConcerts = upcoming.length > 0 || past.length > 0;
+  const hasBothSections = upcoming.length > 0 && past.length > 0;
 
   return (
     <Section id={sectionIds.schedule} variant="muted">
@@ -20,18 +20,22 @@ export async function ScheduleSection() {
         <SectionHeading title={t('title')} subtitle={t('subtitle')} />
 
         {upcoming.length > 0 ? (
-          <div className="mb-16">
-            <h3 className="mb-6 font-serif text-xl text-balance md:text-2xl">{t('upcoming')}</h3>
-            <ConcertTable concerts={upcoming} columns={columns} />
+          <div className={past.length > 0 ? 'mb-16' : undefined}>
+            {hasBothSections ? (
+              <h3 className="mb-8 font-serif text-xl text-balance md:text-2xl">{t('upcoming')}</h3>
+            ) : null}
+            <ConcertList concerts={upcoming} ticketsLabel={t('tickets')} />
           </div>
         ) : null}
 
         {past.length > 0 ? (
           <div>
-            <h3 className="mb-6 font-serif text-xl text-balance text-foreground/70 md:text-2xl">
-              {t('past')}
-            </h3>
-            <ConcertTable concerts={past} columns={columns} />
+            {hasBothSections ? (
+              <h3 className="mb-8 font-serif text-xl text-balance text-foreground/70 md:text-2xl">
+                {t('past')}
+              </h3>
+            ) : null}
+            <ConcertList concerts={past} ticketsLabel={t('tickets')} />
           </div>
         ) : null}
 

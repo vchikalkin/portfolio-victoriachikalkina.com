@@ -26,7 +26,7 @@ export function MediaCard({ item, placeholder }: MediaCardProps) {
         ) : (
           <div className="flex size-full flex-col items-center justify-center gap-3 text-foreground/40">
             {isVideo ? <Play className="size-10" /> : <Music2 className="size-10" />}
-            <span className="text-xs uppercase">{placeholder}</span>
+            <span className="text-xs text-foreground/50">{placeholder}</span>
           </div>
         )}
       </div>

@@ -75,15 +75,9 @@
     "subtitle": "Upcoming & recent performances",
     "upcoming": "Upcoming",
     "past": "Past",
+    "tickets": "Tickets",
     "empty": "No concerts listed yet.",
     "emptyAction": "Get in touch to book a performance",
-    "columns": {
-      "date": "Date",
-      "city": "City",
-      "venue": "Venue",
-      "program": "Program",
-      "artists": "Artists"
-    },
     "items": [
       {
         "id": "neuchatel-2026-09-20",
@@ -507,8 +501,7 @@
   "Contact": {
     "title": "Contact",
     "subtitle": "Booking & press inquiries",
-    "description": "For concert bookings, festival invitations, or press requests, write directly.",
-    "email": "Email"
+    "description": "For concert bookings, festival invitations, or press requests, write directly."
   },
   "Footer": {
     "follow": "Follow",

@@ -41,9 +41,7 @@ export async function Footer() {
     <footer className="border-t border-border py-12 md:py-16">
       <Container className="flex flex-col items-center gap-8 text-center">
         <div>
-          <p className="mb-4 text-sm text-foreground/60 uppercase">
-            {t('follow')}
-          </p>
+          <p className="mb-4 text-sm text-foreground/60">{t('follow')}</p>
           <div className="flex items-center justify-center gap-4">
             {socialLinks.map(({ key, href, icon: Icon, label }) => {
               return (

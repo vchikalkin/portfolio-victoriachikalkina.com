@@ -35,7 +35,7 @@ export async function HeroSection() {
       <Container className="relative z-10 pt-32 pb-16 md:pt-40 md:pb-24">
         <div className="grid gap-12 lg:grid-cols-[1fr_auto] lg:items-end">
           <div className="max-w-3xl">
-            <p className="mb-4 text-sm text-white/60 uppercase">{t('role')}</p>
+            <p className="mb-4 text-sm text-white/60">{t('role')}</p>
             <h1 className="font-serif text-5xl leading-none text-balance md:text-7xl lg:text-8xl">
               {tSite('name')}
             </h1>

@@ -22,9 +22,7 @@ export function SectionHeading({
       )}
     >
       {subtitle ? (
-        <p className="mb-3 text-sm font-medium text-foreground/60 uppercase">
-          {subtitle}
-        </p>
+        <p className="mb-3 text-sm font-medium text-foreground/60">{subtitle}</p>
       ) : null}
       <h2 className="font-serif text-3xl text-balance text-foreground md:text-4xl lg:text-5xl">
         {title}

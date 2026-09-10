@@ -25,7 +25,7 @@ export function EraBlock({ title, composers }: EraBlockProps) {
       : previewNames.join(', ');
 
   return (
-    <article className="border-t border-border pt-8">
+    <article className="py-8 first:pt-0 last:pb-0">
       <details className="group">
         <summary className="flex cursor-pointer list-none items-start justify-between gap-4 [&::-webkit-details-marker]:hidden">
           <div className="min-w-0 flex-1">

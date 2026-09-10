@@ -14,7 +14,7 @@ export async function RepertoireSection() {
     <Section id={sectionIds.repertoire} variant="muted">
       <Container>
         <SectionHeading title={t('title')} subtitle={t('subtitle')} />
-        <div className="flex flex-col gap-10">
+        <div className="divide-y divide-border">
           {eras.map((era) => (
             <EraBlock key={era.id} title={era.title} composers={era.composers} />
           ))}
