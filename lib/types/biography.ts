@@ -7,7 +7,6 @@ export interface BiographySectionContent {
 }
 
 export interface BiographyContent {
-  tagline: string;
   intro: string[];
   sections: BiographySectionContent[];
 }

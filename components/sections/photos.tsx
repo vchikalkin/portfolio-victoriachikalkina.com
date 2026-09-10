@@ -29,7 +29,7 @@ export async function PhotosSection() {
   return (
     <Section id={sectionIds.photos} variant="muted">
       <Container>
-        <SectionHeading title={t('title')} subtitle={t('subtitle')} />
+        <SectionHeading title={t('title')} />
         {photos.length > 0 ? (
           <PhotoGallery
             photos={photos}

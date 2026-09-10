@@ -14,14 +14,14 @@ export function BiographyBlock({ section }: BiographyBlockProps) {
         return (
           <p
             key={paragraph.slice(0, 40)}
-            className="text-base leading-relaxed text-pretty text-foreground/80 md:text-lg"
+            className="text-justify text-base leading-relaxed text-foreground/80 md:text-lg"
           >
             {paragraph}
           </p>
         );
       })}
       {section.listIntro ? (
-        <p className="text-base leading-relaxed text-pretty text-foreground/80 md:text-lg">
+        <p className="text-justify text-base leading-relaxed text-foreground/80 md:text-lg">
           {section.listIntro}
         </p>
       ) : null}
@@ -40,7 +40,7 @@ export function BiographyBlock({ section }: BiographyBlockProps) {
         </ul>
       ) : null}
       {section.closing ? (
-        <p className="text-base leading-relaxed text-pretty text-foreground/80 md:text-lg">
+        <p className="text-justify text-base leading-relaxed text-foreground/80 md:text-lg">
           {section.closing}
         </p>
       ) : null}

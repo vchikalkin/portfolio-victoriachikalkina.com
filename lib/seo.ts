@@ -133,7 +133,7 @@ function buildMusicEventSchema(
 ) {
   return {
     '@type': 'MusicEvent',
-    name: concert.program || concert.venue,
+    name: concert.venue || concert.program,
     startDate: concert.date,
     eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
     eventStatus: 'https://schema.org/EventScheduled',

@@ -17,14 +17,14 @@ export async function ScheduleSection() {
   return (
     <Section id={sectionIds.schedule} variant="muted">
       <Container>
-        <SectionHeading title={t('title')} subtitle={t('subtitle')} />
+        <SectionHeading title={t('title')} />
 
         {upcoming.length > 0 ? (
           <div className={past.length > 0 ? 'mb-16' : undefined}>
             {hasBothSections ? (
               <h3 className="mb-8 font-serif text-xl text-balance md:text-2xl">{t('upcoming')}</h3>
             ) : null}
-            <ConcertList concerts={upcoming} ticketsLabel={t('tickets')} />
+            <ConcertList concerts={upcoming} detailsLabel={t('details')} />
           </div>
         ) : null}
 
@@ -35,7 +35,7 @@ export async function ScheduleSection() {
                 {t('past')}
               </h3>
             ) : null}
-            <ConcertList concerts={past} ticketsLabel={t('tickets')} />
+            <ConcertList concerts={past} detailsLabel={t('details')} />
           </div>
         ) : null}
 

@@ -15,7 +15,7 @@ export async function MediaSection() {
   return (
     <Section id={sectionIds.media}>
       <Container>
-        <SectionHeading title={t('title')} subtitle={t('subtitle')} />
+        <SectionHeading title={t('title')} />
 
         {videos.length > 0 ? (
           <div className="mb-16">

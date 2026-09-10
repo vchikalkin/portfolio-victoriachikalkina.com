@@ -21,12 +21,12 @@ export function SectionHeading({
         className,
       )}
     >
-      {subtitle ? (
-        <p className="mb-3 text-sm font-medium text-foreground/60">{subtitle}</p>
-      ) : null}
       <h2 className="font-serif text-3xl text-balance text-foreground md:text-4xl lg:text-5xl">
         {title}
       </h2>
+      {subtitle ? (
+        <p className="mt-3 text-sm font-medium text-pretty text-foreground/60">{subtitle}</p>
+      ) : null}
     </header>
   );
 }

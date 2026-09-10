@@ -39,7 +39,6 @@
   "Biography": {
     "title": "Biography",
     "content": {
-      "tagline": "Pianist | Historical Keyboard Specialist",
       "intro": [
         "Victoria Chikalkina performs as a soloist and chamber musician on modern piano, fortepiano, and harpsichord.",
         "Classical piano remains central to her career. She graduated with honors in 2023 from the Tchaikovsky State Conservatory in Moscow, in the class of Professor Maxim Philippov.",
@@ -72,34 +71,31 @@
   },
   "Schedule": {
     "title": "Upcoming Concerts",
-    "subtitle": "Upcoming & recent performances",
     "upcoming": "Upcoming",
     "past": "Past",
-    "tickets": "Tickets",
+    "details": "More info",
     "empty": "No concerts listed yet.",
     "emptyAction": "Get in touch to book a performance",
     "items": [
       {
         "id": "neuchatel-2026-09-20",
         "date": "2026-09-20",
-        "city": "Neuchâtel",
-        "venue": "La Collégiale de Neuchâtel, Switzerland",
-        "program": "F. Schubert — Piano Trio No. 2",
-        "artists": "Maxim Synytskyi (violin), Denis Poustovgar (cello), Victoria Chikalkina (piano)"
+        "city": "Neuchâtel, Switzerland",
+        "venue": "Schubertiade sur la Colline",
+        "program": "Schubert Trio with Maxim Synytskyi (violin), Denis Poustovgar (cello)",
+        "ticketsUrl": "https://collegiale.ch/events/schubertiade-sur-la-colline-1"
       },
       {
         "id": "geneva-2027-05-14",
         "date": "2027-05-14",
-        "city": "Geneva",
-        "venue": "Conservatoire de Genève, Switzerland",
-        "program": "W. A. Mozart — Piano Concerto No. 12 in A major, K. 414 · performed on a historical fortepiano (replica after Johann Andreas Stein)",
-        "artists": "Victoria Chikalkina (piano, solo)"
+        "city": "Geneva, Switzerland",
+        "venue": "Conservatoire de Genève",
+        "program": "W. A. Mozart — Piano Concerto No. 12 in A major, K. 414 · historical fortepiano (replica after Johann Andreas Stein)"
       }
     ]
   },
   "Media": {
     "title": "Media",
-    "subtitle": "Watch & listen",
     "videoTab": "Video",
     "audioTab": "Audio",
     "placeholder": "Not available",
@@ -129,7 +125,6 @@
   },
   "Photos": {
     "title": "Photos",
-    "subtitle": "On stage & behind the scenes",
     "imageAlt": "Photo {number}",
     "openPhoto": "Open photo",
     "close": "Close",
@@ -140,7 +135,6 @@
   },
   "Repertoire": {
     "title": "Repertoire",
-    "subtitle": "Selected works",
     "eras": [
       {
         "id": "baroque-pre-classical",

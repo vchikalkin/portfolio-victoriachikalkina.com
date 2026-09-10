@@ -13,7 +13,7 @@ export async function RepertoireSection() {
   return (
     <Section id={sectionIds.repertoire} variant="muted">
       <Container>
-        <SectionHeading title={t('title')} subtitle={t('subtitle')} />
+        <SectionHeading title={t('title')} />
         <div className="divide-y divide-border">
           {eras.map((era) => (
             <EraBlock key={era.id} title={era.title} composers={era.composers} />
