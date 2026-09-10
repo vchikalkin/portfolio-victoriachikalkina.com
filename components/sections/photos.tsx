@@ -7,10 +7,13 @@ import { sectionIds } from '@/config/site';
 import { getGalleryImages } from '@/lib/photos';
 import type { GalleryPhoto } from '@/lib/types/photos';
 
-/** Thumbnail crop anchors for portraits where default center clips the face. */
+/**
+ * Thumbnail crop anchors for portraits where default center clips the face.
+ * Keys are lowercased — Windows readdir may differ from git/Linux case (e.g. .JPG).
+ */
 const thumbnailObjectPositionClassBySrc: Record<string, string> = {
-  '/gallery/IMG_5983.jpg': 'object-[center_20%]',
-  '/gallery/IMG_6955.jpg': 'object-[center_30%]',
+  '/gallery/img_5983.jpg': 'object-[center_20%]',
+  '/gallery/img_6955.jpg': 'object-[center_30%]',
 };
 
 export async function PhotosSection() {
@@ -22,7 +25,7 @@ export async function PhotosSection() {
       id: src,
       src,
       alt: t('imageAlt', { number: index + 1 }),
-      objectPositionClass: thumbnailObjectPositionClassBySrc[src],
+      objectPositionClass: thumbnailObjectPositionClassBySrc[src.toLowerCase()],
     };
   });
 
