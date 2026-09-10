@@ -4,6 +4,7 @@ import { useEffect, useState, useSyncExternalStore } from 'react';
 import { PhotoLightbox } from '@/components/gallery/photo-lightbox';
 import { SiteImage } from '@/components/ui/site-image';
 import type { GalleryPhoto } from '@/lib/types/photos';
+import { cn } from '@/lib/utils';
 
 interface PhotoGalleryLabels {
   openPhoto: string;
@@ -77,7 +78,7 @@ export function PhotoGallery({ photos, labels }: PhotoGalleryProps) {
                 fill
                 src={photo.src}
                 alt={photo.alt}
-                className="object-cover"
+                className={cn('object-cover', photo.objectPositionClass)}
                 sizes="(max-width: 768px) 50vw, 33vw"
               />
             </button>
