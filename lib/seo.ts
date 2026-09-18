@@ -56,20 +56,6 @@ export function getLanguageAlternates(): NonNullable<
 
   return languages;
 }
-
-/** Absolute hreflang map for sitemap xhtml:link entries. */
-export function getSitemapLanguageAlternates(): Record<string, string> {
-  const languages: Record<string, string> = {};
-
-  for (const locale of routing.locales) {
-    languages[locale] = getLocaleUrl(locale);
-  }
-
-  languages['x-default'] = getLocaleUrl(routing.defaultLocale);
-
-  return languages;
-}
-
 interface PersonStructuredDataOptions {
   locale: string;
   name: string;
