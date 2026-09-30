@@ -3,6 +3,7 @@ import { NextConcertBlock } from '@/components/sections/hero/next-concert-block'
 import { Container } from '@/components/ui/container';
 import { SiteImage } from '@/components/ui/site-image';
 import { sectionIds } from '@/config/site';
+import { findNextConcert } from '@/lib/concerts';
 import { getHeroImage } from '@/lib/photos';
 import type { ConcertItem } from '@/lib/types/content';
 
@@ -11,7 +12,7 @@ export async function HeroSection() {
   const tSite = await getTranslations('Site');
   const tSchedule = await getTranslations('Schedule');
   const concerts = tSchedule.raw('items') as ConcertItem[];
-  const nextConcert = concerts.find((item) => new Date(item.date) >= new Date());
+  const nextConcert = findNextConcert(concerts) ?? null;
   const heroImage = getHeroImage();
 
   return (
@@ -41,7 +42,7 @@ export async function HeroSection() {
             </h1>
           </div>
 
-          {nextConcert ? <NextConcertBlock nextConcert={nextConcert} t={t} /> : null}
+          <NextConcertBlock concerts={concerts} initialConcert={nextConcert} />
         </div>
       </Container>
     </section>

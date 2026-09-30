@@ -1,18 +1,30 @@
+'use client';
+
 import { Calendar } from 'lucide-react';
-import { useFormatter } from 'next-intl';
+import { useFormatter, useTranslations } from 'next-intl';
 import { buttonVariants } from '@/components/ui/button';
 import { sectionIds } from '@/config/site';
+import { findNextConcert, parseConcertDate } from '@/lib/concerts';
 import type { ConcertItem } from '@/lib/types/content';
+import { useIsClientMounted } from '@/lib/use-client-mounted';
 import { cn } from '@/lib/utils';
 
 interface NextConcertBlockProps {
-  readonly nextConcert: ConcertItem;
-  readonly t: (key: string) => string;
+  readonly concerts: readonly ConcertItem[];
+  readonly initialConcert: ConcertItem | null;
 }
 
-export function NextConcertBlock({ nextConcert, t }: NextConcertBlockProps) {
-  const date = new Date(nextConcert.date);
+export function NextConcertBlock({ concerts, initialConcert }: NextConcertBlockProps) {
+  const t = useTranslations('Hero');
   const format = useFormatter();
+  const isMounted = useIsClientMounted();
+  const nextConcert = isMounted ? (findNextConcert(concerts) ?? null) : initialConcert;
+  const date = nextConcert ? parseConcertDate(nextConcert.date) : null;
+
+  if (!nextConcert || !date) {
+    return null;
+  }
+
   const displayDate = format.dateTime(date, { dateStyle: 'medium' });
 
   return (
