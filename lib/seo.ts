@@ -20,12 +20,15 @@ export function getOgImageUrl(): string {
 
 /** Relative locale path — resolved against metadataBase for canonical/hreflang. */
 export function getLocalePath(locale: string): string {
-  return `/${locale}`;
+  // Default locale is unprefixed (`/`), others keep `/ru`, `/fr`, …
+  return locale === routing.defaultLocale ? '/' : `/${locale}`;
 }
 
 /** Absolute locale URL for sitemap, JSON-LD, and robots. */
 export function getLocaleUrl(locale: string): string {
-  return `${siteConfig.siteUrl}${getLocalePath(locale)}`;
+  const path = getLocalePath(locale);
+
+  return path === '/' ? siteConfig.siteUrl : `${siteConfig.siteUrl}${path}`;
 }
 
 export function getOgLocale(locale: string): string {

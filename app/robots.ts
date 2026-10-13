@@ -1,6 +1,8 @@
 import type { MetadataRoute } from 'next';
 import { siteConfig } from '@/config/site';
 
+export const dynamic = 'force-static';
+
 /**
  * Allow full crawl of the public portfolio. No private areas to block.
  * Demo/MDX routes stay crawlable so their robots noindex meta is honored.
