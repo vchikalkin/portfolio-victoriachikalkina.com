@@ -7,6 +7,18 @@
       "skillPath": "skills/baseline-ui/SKILL.md",
       "computedHash": "016ad266e4e3bfd058096bb032ae890b09973267a547048414a371f5b1b266de"
     },
+    "fixing-accessibility": {
+      "source": "ibelick/ui-skills",
+      "sourceType": "github",
+      "skillPath": "skills/fixing-accessibility/SKILL.md",
+      "computedHash": "f8ddcb0a8c7b8728105eab18e17223e41d74fb8649becba58a6deb90c6a5ce8d"
+    },
+    "fixing-metadata": {
+      "source": "ibelick/ui-skills",
+      "sourceType": "github",
+      "skillPath": "skills/fixing-metadata/SKILL.md",
+      "computedHash": "10047222b01c2c9b6e904ef90079880d9dbc09de3241df7f311b238dbcb7869a"
+    },
     "frontend-design": {
       "source": "anthropics/skills",
       "sourceType": "github",
@@ -24,6 +36,12 @@
       "sourceType": "github",
       "skillPath": "skills/ponytail/SKILL.md",
       "computedHash": "dc44b17f49b1228761af8303a51bc028cd1cca866ba8d23d6072ef5fd4e0ba94"
+    },
+    "seo-audit": {
+      "source": "coreyhaines31/marketingskills",
+      "sourceType": "github",
+      "skillPath": "skills/seo-audit/SKILL.md",
+      "computedHash": "f321ae6d6959fcad4a9f65db8eb1548b981e3e85cb541050f94703ebacc6d39d"
     }
   }
 }
