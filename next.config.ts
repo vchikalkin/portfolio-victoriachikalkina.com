@@ -26,5 +26,16 @@ export default async (): Promise<NextConfig> => {
     return withExportImages(config);
   }
 
-  return config;
+  return {
+    ...config,
+    turbopack: {
+      ...config.turbopack,
+      resolveAlias: {
+        ...config.turbopack?.resolveAlias,
+        // ponytail: Turbopack resolves this import even when SiteImage picks next/image.
+        // The package config is not published; withExportImages writes it only for static export.
+        'next-export-optimize-images/image': 'next/image',
+      },
+    },
+  };
 };
