@@ -2,6 +2,8 @@ import type { MetadataRoute } from 'next';
 import { routing } from '@/i18n/routing';
 import { getLocaleUrl } from '@/lib/seo';
 
+export const dynamic = 'force-static';
+
 /**
  * Indexable pages only: one URL per locale (the single-page portfolio).
  * Hash sections (#biography, #schedule, …) are intentionally omitted —

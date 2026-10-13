@@ -10,7 +10,9 @@ import { defineRouting } from 'next-intl/routing';
 export const routing = defineRouting({
   locales: ['en', 'ru'],
   defaultLocale: 'en',
-  localePrefix: 'always',
+  // ponytail: as-needed so `/` is English (no redirect). Static export has no
+  // middleware — root page below re-exports the en locale shell.
+  localePrefix: 'as-needed',
   localeDetection: false,
 });
 
