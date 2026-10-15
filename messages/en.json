@@ -86,6 +86,13 @@
         "ticketsUrl": "https://collegiale.ch/events/schubertiade-sur-la-colline-1"
       },
       {
+        "id": "geneva-2027-03-12",
+        "date": "2027-03-12",
+        "city": "Geneva, Switzerland",
+        "venue": "Salle de la Bourse",
+        "program": "W. A. Mozart — Piano Concerto No. 14 in E flat major, K. 449 · historical fortepiano (replica after Johann Andreas Stein)"
+      },
+      {
         "id": "geneva-2027-05-14",
         "date": "2027-05-14",
         "city": "Geneva, Switzerland",
