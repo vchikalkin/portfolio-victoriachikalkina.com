@@ -25,7 +25,7 @@ export function NextConcertBlock({ concerts, initialConcert }: NextConcertBlockP
     return null;
   }
 
-  const displayDate = format.dateTime(date, { dateStyle: 'medium' });
+  const displayDate = format.dateTime(date, { dateStyle: 'long' });
 
   return (
     <aside className="max-w-md border border-white/15 bg-white/10 p-6 md:p-8">
