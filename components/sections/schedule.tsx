@@ -4,13 +4,14 @@ import { Container } from '@/components/ui/container';
 import { Section } from '@/components/ui/section';
 import { SectionHeading } from '@/components/ui/section-heading';
 import { sectionIds } from '@/config/site';
-import type { ConcertItem } from '@/lib/types/content';
+import { isConcertDatePast } from '@/lib/concerts';
+import { getConcerts } from '@/lib/sanity/content';
 
 export async function ScheduleSection() {
   const t = await getTranslations('Schedule');
-  const items = t.raw('items') as ConcertItem[];
-  const past = items.filter((item) => new Date(item.date) < new Date());
-  const upcoming = items.filter((item) => !past.includes(item));
+  const items = await getConcerts();
+  const past = items.filter((item) => isConcertDatePast(item.date));
+  const upcoming = items.filter((item) => !isConcertDatePast(item.date));
   const hasConcerts = upcoming.length > 0 || past.length > 0;
   const hasBothSections = upcoming.length > 0 && past.length > 0;
 
@@ -22,7 +23,9 @@ export async function ScheduleSection() {
         {upcoming.length > 0 ? (
           <div className={past.length > 0 ? 'mb-16' : undefined}>
             {hasBothSections ? (
-              <h3 className="mb-8 font-serif text-xl text-balance md:text-2xl">{t('upcoming')}</h3>
+              <h3 className="mb-8 font-serif text-xl text-balance md:text-2xl">
+                {t('upcoming')}
+              </h3>
             ) : null}
             <ConcertList concerts={upcoming} detailsLabel={t('details')} />
           </div>

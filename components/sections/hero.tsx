@@ -1,31 +1,34 @@
-import { getTranslations } from 'next-intl/server';
 import { NextConcertBlock } from '@/components/sections/hero/next-concert-block';
 import { Container } from '@/components/ui/container';
 import { SiteImage } from '@/components/ui/site-image';
 import { sectionIds } from '@/config/site';
 import { findNextConcert } from '@/lib/concerts';
-import { getHeroImage } from '@/lib/photos';
-import type { ConcertItem } from '@/lib/types/content';
+import { getConcerts, getSiteSettings } from '@/lib/sanity/content';
+import { urlForImage } from '@/lib/sanity/image';
 
 export async function HeroSection() {
-  const t = await getTranslations('Hero');
-  const tSite = await getTranslations('Site');
-  const tSchedule = await getTranslations('Schedule');
-  const concerts = tSchedule.raw('items') as ConcertItem[];
+  const settings = await getSiteSettings();
+  const concerts = await getConcerts();
   const nextConcert = findNextConcert(concerts) ?? null;
-  const heroImage = getHeroImage();
+
+  const heroSrc = settings?.heroImage
+    ? urlForImage(settings.heroImage).width(2400).height(1600).fit('crop').url()
+    : undefined;
+  const heroAlt = settings?.heroImageAlt || settings?.name || '';
+  const role = settings?.jobTitle || '';
+  const name = settings?.name || '';
 
   return (
     <section
       id={sectionIds.hero}
       className="relative flex min-h-dvh items-end overflow-hidden bg-zinc-950 text-white"
     >
-      {heroImage ? (
+      {heroSrc ? (
         <SiteImage
           fill
           preload
-          src={heroImage}
-          alt={t('imageAlt')}
+          src={heroSrc}
+          alt={heroAlt}
           className="object-cover object-left md:object-center"
           sizes="100vw"
         />
@@ -36,9 +39,11 @@ export async function HeroSection() {
       <Container className="relative z-10 pt-32 pb-16 md:pt-40 md:pb-24">
         <div className="grid gap-12 lg:grid-cols-[1fr_auto] lg:items-end">
           <div className="max-w-3xl">
-            <p className="mb-4 text-sm text-white/60">{t('role')}</p>
+            {role ? (
+              <p className="mb-4 text-sm text-white/60">{role}</p>
+            ) : null}
             <h1 className="font-serif text-5xl leading-none text-balance md:text-7xl lg:text-8xl">
-              {tSite('name')}
+              {name}
             </h1>
           </div>
 

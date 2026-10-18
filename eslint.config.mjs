@@ -18,10 +18,21 @@ const sheriffOptions = {
 
 export default defineConfig(
   {
-    ignores: ['postcss.config.mjs', 'export-images.config.js', 'scripts/**'],
+    ignores: [
+      'postcss.config.mjs',
+      'scripts/**',
+      'lib/sanity/*.selfcheck.mjs',
+      'sanity.cli.ts',
+      'sanity.config.ts',
+      'sanity/**',
+      '.sanity/**',
+    ],
   },
   sheriff(sheriffOptions),
   {
+    plugins: {
+      tailwindcss: eslintPluginTailwindcss,
+    },
     extends: [eslintPluginTailwindcss.configs.recommended],
     settings: {
       tailwindcss: {

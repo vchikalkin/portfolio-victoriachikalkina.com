@@ -4,28 +4,33 @@ import { Container } from '@/components/ui/container';
 import { Section } from '@/components/ui/section';
 import { SectionHeading } from '@/components/ui/section-heading';
 import { sectionIds } from '@/config/site';
-import { getGalleryImages } from '@/lib/photos';
+import { getGalleryPhotos } from '@/lib/sanity/content';
+import { urlForImage } from '@/lib/sanity/image';
 import type { GalleryPhoto } from '@/lib/types/photos';
-
-/**
- * Thumbnail crop anchors for portraits where default center clips the face.
- * Keys are lowercased — Windows readdir may differ from git/Linux case (e.g. .JPG).
- */
-const thumbnailObjectPositionClassBySrc: Record<string, string> = {
-  '/gallery/img_5983.jpg': 'object-[center_20%]',
-  '/gallery/img_6955.jpg': 'object-[center_30%]',
-};
 
 export async function PhotosSection() {
   const t = await getTranslations('Photos');
-  const imagePaths = getGalleryImages();
+  const fromCms = await getGalleryPhotos();
 
-  const photos: GalleryPhoto[] = imagePaths.map((src, index) => {
+  const photos: GalleryPhoto[] = fromCms.map((photo, index) => {
     return {
-      id: src,
-      src,
-      alt: t('imageAlt', { number: index + 1 }),
-      objectPositionClass: thumbnailObjectPositionClassBySrc[src.toLowerCase()],
+      id: photo.id,
+      // Grid: 4:3 crop respects Sanity hotspot.
+      thumbSrc: urlForImage(photo.image)
+        .width(900)
+        .height(675)
+        .fit('crop')
+        .auto('format')
+        .quality(80)
+        .url(),
+      // Lightbox: original aspect, high res (no forced crop).
+      src: urlForImage(photo.image)
+        .width(2400)
+        .fit('max')
+        .auto('format')
+        .quality(90)
+        .url(),
+      alt: photo.alt || t('imageAlt', { number: index + 1 }),
     };
   });
 

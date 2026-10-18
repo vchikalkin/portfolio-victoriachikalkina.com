@@ -4,11 +4,15 @@ import { Container } from '@/components/ui/container';
 import { Section } from '@/components/ui/section';
 import { SectionHeading } from '@/components/ui/section-heading';
 import { sectionIds } from '@/config/site';
-import type { RepertoireEra } from '@/lib/types/content';
+import { getRepertoire } from '@/lib/sanity/content';
 
 export async function RepertoireSection() {
   const t = await getTranslations('Repertoire');
-  const eras = t.raw('eras') as RepertoireEra[];
+  const eras = await getRepertoire();
+
+  if (eras.length === 0) {
+    return null;
+  }
 
   return (
     <Section id={sectionIds.repertoire} variant="muted">
