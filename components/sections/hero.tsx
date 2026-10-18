@@ -1,3 +1,4 @@
+import type { SanityImageSource } from '@sanity/image-url';
 import { NextConcertBlock } from '@/components/sections/hero/next-concert-block';
 import { Container } from '@/components/ui/container';
 import { SiteImage } from '@/components/ui/site-image';
@@ -6,13 +7,28 @@ import { findNextConcert } from '@/lib/concerts';
 import { getConcerts, getSiteSettings } from '@/lib/sanity/content';
 import { urlForImage } from '@/lib/sanity/image';
 
+/** Match local-file hero: full frame, no Studio crop/hotspot baked into the URL. */
+function fullFrameImage(image: SanityImageSource): SanityImageSource {
+  if (typeof image !== 'object') {
+    return image;
+  }
+
+  return Object.fromEntries(
+    Object.entries(image).filter(([key]) => key !== 'crop' && key !== 'hotspot'),
+  );
+}
+
 export async function HeroSection() {
   const settings = await getSiteSettings();
   const concerts = await getConcerts();
   const nextConcert = findNextConcert(concerts) ?? null;
 
   const heroSrc = settings?.heroImage
-    ? urlForImage(settings.heroImage).width(2400).height(1600).fit('crop').url()
+    ? urlForImage(fullFrameImage(settings.heroImage))
+        .width(2400)
+        .auto('format')
+        .quality(85)
+        .url()
     : undefined;
   const heroAlt = settings?.heroImageAlt || settings?.name || '';
   const role = settings?.jobTitle || '';
