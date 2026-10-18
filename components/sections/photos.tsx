@@ -15,7 +15,21 @@ export async function PhotosSection() {
   const photos: GalleryPhoto[] = fromCms.map((photo, index) => {
     return {
       id: photo.id,
-      src: urlForImage(photo.image).width(1200).height(900).fit('crop').url(),
+      // Grid: 4:3 crop respects Sanity hotspot.
+      thumbSrc: urlForImage(photo.image)
+        .width(900)
+        .height(675)
+        .fit('crop')
+        .auto('format')
+        .quality(80)
+        .url(),
+      // Lightbox: original aspect, high res (no forced crop).
+      src: urlForImage(photo.image)
+        .width(2400)
+        .fit('max')
+        .auto('format')
+        .quality(90)
+        .url(),
       alt: photo.alt || t('imageAlt', { number: index + 1 }),
     };
   });

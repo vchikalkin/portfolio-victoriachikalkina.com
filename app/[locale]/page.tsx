@@ -12,6 +12,7 @@ import { ScheduleSection } from '@/components/sections/schedule';
 import { routing } from '@/i18n/routing';
 import { isConcertDatePast } from '@/lib/concerts';
 import { getConcerts, getSiteSettings } from '@/lib/sanity/content';
+import { urlForImage } from '@/lib/sanity/image';
 import {
   buildStructuredData,
   getLocalePath,
@@ -77,11 +78,16 @@ export default async function HomePage({ params }: HomePageProps) {
     (item) => !isConcertDatePast(item.date),
   );
 
+  const imageUrl = settings?.heroImage
+    ? urlForImage(settings.heroImage).width(1200).height(1600).fit('crop').url()
+    : undefined;
+
   const structuredData = buildStructuredData({
     locale,
     name: settings?.name || 'Victoria Chikalkina',
     description: settings?.metaDescription || '',
     jobTitle: settings?.jobTitle || 'Pianist',
+    imageUrl,
     upcomingConcerts,
   });
 

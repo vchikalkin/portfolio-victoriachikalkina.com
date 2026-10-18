@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { siteConfig } from '@/config/site';
 import { routing } from '@/i18n/routing';
-import { getHeroImage } from '@/lib/photos';
 import type { ConcertItem } from '@/lib/types/content';
 
 /** Open Graph uses underscore regional tags (for example en_US), not BCP 47 hyphens. */
@@ -10,13 +9,6 @@ const ogLocaleByLocale: Record<string, string> = {
   ru: 'ru_RU',
   fr: 'fr_FR',
 };
-
-/** Used in JSON-LD Person schema only — not exposed as og:image link previews. */
-export function getOgImageUrl(): string {
-  const heroImage = getHeroImage() ?? '/hero/IMG_1468.jpg';
-
-  return new URL(heroImage, siteConfig.siteUrl).toString();
-}
 
 /** Relative locale path — resolved against metadataBase for canonical/hreflang. */
 export function getLocalePath(locale: string): string {
@@ -36,9 +28,7 @@ export function getOgLocale(locale: string): string {
 }
 
 export function getOgAlternateLocales(locale: string): string[] {
-  return routing.locales
-    .filter((item) => item !== locale)
-    .map((item) => getOgLocale(item));
+  return routing.locales.filter((item) => item !== locale).map((item) => getOgLocale(item));
 }
 
 /**
@@ -64,6 +54,8 @@ interface PersonStructuredDataOptions {
   name: string;
   description: string;
   jobTitle: string;
+  /** Absolute Sanity CDN URL for JSON-LD Person.image. */
+  imageUrl?: string;
 }
 
 interface StructuredDataOptions extends PersonStructuredDataOptions {
@@ -75,6 +67,7 @@ function buildPersonSchema({
   name,
   description,
   jobTitle,
+  imageUrl,
 }: PersonStructuredDataOptions) {
   return {
     '@type': 'Person',
@@ -82,20 +75,11 @@ function buildPersonSchema({
     name,
     jobTitle,
     url: getLocaleUrl(locale),
-    image: getOgImageUrl(),
+    ...(imageUrl ? { image: imageUrl } : {}),
     email: siteConfig.contactEmail,
-    sameAs: [
-      siteConfig.social.instagram,
-      siteConfig.social.facebook,
-      siteConfig.social.youtube,
-    ],
+    sameAs: [siteConfig.social.instagram, siteConfig.social.facebook, siteConfig.social.youtube],
     description,
-    knowsAbout: [
-      'Classical piano',
-      'Historical fortepiano',
-      'Harpsichord',
-      'Chamber music',
-    ],
+    knowsAbout: ['Classical piano', 'Historical fortepiano', 'Harpsichord', 'Chamber music'],
   };
 }
 
@@ -115,11 +99,7 @@ function buildWebsiteSchema({
   };
 }
 
-function buildMusicEventSchema(
-  concert: ConcertItem,
-  locale: string,
-  performerName: string,
-) {
+function buildMusicEventSchema(concert: ConcertItem, locale: string, performerName: string) {
   return {
     '@type': 'MusicEvent',
     name: concert.venue || concert.program,
@@ -150,10 +130,11 @@ export function buildStructuredData({
   name,
   description,
   jobTitle,
+  imageUrl,
   upcomingConcerts = [],
 }: StructuredDataOptions) {
   const graph: Record<string, unknown>[] = [
-    buildPersonSchema({ locale, name, description, jobTitle }),
+    buildPersonSchema({ locale, name, description, jobTitle, imageUrl }),
     buildWebsiteSchema({ locale, name, description }),
   ];
 

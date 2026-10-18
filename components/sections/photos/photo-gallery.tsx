@@ -76,7 +76,7 @@ export function PhotoGallery({ photos, labels }: PhotoGalleryProps) {
             >
               <SiteImage
                 fill
-                src={photo.src}
+                src={photo.thumbSrc ?? photo.src}
                 alt={photo.alt}
                 sizes="(max-width: 768px) 50vw, 33vw"
                 className={cn(
