@@ -1,7 +1,6 @@
 import { defineConfig } from 'sanity';
 import { structureTool } from 'sanity/structure';
 import { internationalizedArray } from 'sanity-plugin-internationalized-array';
-import { dataset, projectId } from './sanity/env';
 import { schemaTypes } from './sanity/schemaTypes';
 import { structure } from './sanity/structure';
 
@@ -14,8 +13,9 @@ const languages = [
 export default defineConfig({
   name: 'victoria-chikalkina',
   title: 'Victoria Chikalkina',
-  projectId,
-  dataset,
+  // Sanity Vite only inlines SANITY_STUDIO_* (not NEXT_PUBLIC_*).
+  projectId: process.env.SANITY_STUDIO_PROJECT_ID!,
+  dataset: process.env.SANITY_STUDIO_DATASET!,
   plugins: [
     structureTool({ structure }),
     internationalizedArray({

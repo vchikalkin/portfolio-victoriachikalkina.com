@@ -18,6 +18,9 @@ pnpm sanity          # local http://localhost:3333
 pnpm sanity:deploy   # hosted https://victoria-chikalkina.sanity.studio
 ```
 
+Studio needs `SANITY_STUDIO_PROJECT_ID` / `SANITY_STUDIO_DATASET` in `.env.local` (same values as `NEXT_PUBLIC_*`). Sanity Vite only inlines that prefix.
+
+
 If Studio shows **Data migration required** (i18n v4 → v5): click migrate on those fields (language moves from `_key` to `language`). Frontend GROQ supports both.
 
 Invite the pianist as **Administrator** on Free (Editor role needs Growth).
