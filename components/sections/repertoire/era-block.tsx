@@ -15,7 +15,9 @@ interface EraBlockProps {
 const MAX_PREVIEW_COMPOSERS = 2;
 
 export function EraBlock({ title, composers }: EraBlockProps) {
-  const sortedComposers = composers.toSorted((a, b) => b.works.length - a.works.length);
+  const sortedComposers = composers.toSorted(
+    (a, b) => b.works.length - a.works.length,
+  );
   const previewNames = sortedComposers
     .slice(0, MAX_PREVIEW_COMPOSERS)
     .map((composer) => composer.name);

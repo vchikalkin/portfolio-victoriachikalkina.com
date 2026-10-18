@@ -4,28 +4,19 @@ import { Container } from '@/components/ui/container';
 import { Section } from '@/components/ui/section';
 import { SectionHeading } from '@/components/ui/section-heading';
 import { sectionIds } from '@/config/site';
-import { getGalleryImages } from '@/lib/photos';
+import { getGalleryPhotos } from '@/lib/sanity/content';
+import { urlForImage } from '@/lib/sanity/image';
 import type { GalleryPhoto } from '@/lib/types/photos';
-
-/**
- * Thumbnail crop anchors for portraits where default center clips the face.
- * Keys are lowercased — Windows readdir may differ from git/Linux case (e.g. .JPG).
- */
-const thumbnailObjectPositionClassBySrc: Record<string, string> = {
-  '/gallery/img_5983.jpg': 'object-[center_20%]',
-  '/gallery/img_6955.jpg': 'object-[center_30%]',
-};
 
 export async function PhotosSection() {
   const t = await getTranslations('Photos');
-  const imagePaths = getGalleryImages();
+  const fromCms = await getGalleryPhotos();
 
-  const photos: GalleryPhoto[] = imagePaths.map((src, index) => {
+  const photos: GalleryPhoto[] = fromCms.map((photo, index) => {
     return {
-      id: src,
-      src,
-      alt: t('imageAlt', { number: index + 1 }),
-      objectPositionClass: thumbnailObjectPositionClassBySrc[src.toLowerCase()],
+      id: photo.id,
+      src: urlForImage(photo.image).width(1200).height(900).fit('crop').url(),
+      alt: photo.alt || t('imageAlt', { number: index + 1 }),
     };
   });
 

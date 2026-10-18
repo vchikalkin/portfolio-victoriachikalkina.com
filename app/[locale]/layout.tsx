@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
-import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server';
+import { getMessages, setRequestLocale } from 'next-intl/server';
 import type { PropsWithChildren } from 'react';
 import { Footer } from '@/components/layout/footer';
 import { Header } from '@/components/layout/header';
@@ -9,6 +9,7 @@ import { SkipLink } from '@/components/layout/skip-link';
 import { SetHtmlLang } from '@/components/set-html-lang';
 import { siteConfig } from '@/config/site';
 import { routing } from '@/i18n/routing';
+import { getSiteSettings } from '@/lib/sanity/content';
 import {
   getLanguageAlternates,
   getLocalePath,
@@ -37,22 +38,28 @@ export async function generateMetadata({
     return {};
   }
 
-  const t = await getTranslations({ locale, namespace: 'Meta' });
+  const settings = await getSiteSettings({ locale });
   const localePath = getLocalePath(locale);
+  const siteName = settings?.name || 'Victoria Chikalkina';
+  const title = settings?.metaTitle || siteName;
+  const description = settings?.metaDescription || '';
+  const ogTitle = settings?.ogTitle || title;
+  const ogDescription = settings?.ogDescription || description;
+  const keywords = (settings?.metaKeywords || '')
+    .split(',')
+    .map((keyword) => keyword.trim())
+    .filter(Boolean);
 
   return {
     metadataBase: new URL(siteConfig.siteUrl),
     title: {
-      default: t('title'),
-      template: `%s | ${t('siteName')}`,
+      default: title,
+      template: `%s | ${siteName}`,
     },
-    description: t('description'),
-    keywords: t('keywords')
-      .split(',')
-      .map((keyword) => keyword.trim())
-      .filter(Boolean),
-    authors: [{ name: t('siteName'), url: localePath }],
-    creator: t('siteName'),
+    description,
+    keywords,
+    authors: [{ name: siteName, url: localePath }],
+    creator: siteName,
     robots: {
       index: true,
       follow: true,
@@ -70,14 +77,14 @@ export async function generateMetadata({
       locale: getOgLocale(locale),
       alternateLocale: getOgAlternateLocales(locale),
       url: localePath,
-      siteName: t('siteName'),
-      title: t('ogTitle'),
-      description: t('ogDescription'),
+      siteName,
+      title: ogTitle,
+      description: ogDescription,
     },
     twitter: {
       card: 'summary',
-      title: t('ogTitle'),
-      description: t('ogDescription'),
+      title: ogTitle,
+      description: ogDescription,
     },
   };
 }
@@ -94,6 +101,8 @@ export default async function LocaleLayout({
 
   setRequestLocale(locale);
   const messages = await getMessages();
+  const settings = await getSiteSettings({ locale });
+  const siteName = settings?.name || 'Victoria Chikalkina';
 
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
@@ -108,7 +117,7 @@ export default async function LocaleLayout({
       />
       <SetHtmlLang locale={locale} />
       <SkipLink />
-      <Header />
+      <Header siteName={siteName} />
       {children}
       <Footer />
     </NextIntlClientProvider>

@@ -31,9 +31,12 @@ function getScrollServerSnapshot() {
   return false;
 }
 
-export function Header() {
+interface HeaderProps {
+  readonly siteName: string;
+}
+
+export function Header({ siteName }: HeaderProps) {
   const t = useTranslations('Navigation');
-  const tSite = useTranslations('Site');
   const { resolvedTheme } = useTheme();
   const isThemeMounted = useIsClientMounted();
   const [isOpen, setIsOpen] = useState(false);
@@ -70,7 +73,7 @@ export function Header() {
           href="#hero"
           className="shrink-0 pr-4 font-serif text-lg lg:pr-6 lg:text-xl xl:pr-8 2xl:pr-12"
         >
-          {tSite('name')}
+          {siteName}
         </a>
 
         <nav

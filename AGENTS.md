@@ -9,7 +9,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 ## Stack
 - Next.js 16, React 19, TypeScript, **pnpm**
 - Tailwind v4, next-intl (en, ru), MDX, next-themes
-- Static export: `pnpm build:static` (`STATIC_EXPORT=true`)
+- Sanity CMS (hosted Studio); content via GROQ + ISR revalidate webhook
 
 ## Architecture
 - `components/ui/` — atomic UI primitives

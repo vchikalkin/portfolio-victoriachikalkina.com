@@ -4,11 +4,15 @@ import { Container } from '@/components/ui/container';
 import { Section } from '@/components/ui/section';
 import { SectionHeading } from '@/components/ui/section-heading';
 import { sectionIds } from '@/config/site';
-import type { BiographyContent } from '@/lib/types/biography';
+import { getBiography } from '@/lib/sanity/content';
 
 export async function BiographySection() {
   const t = await getTranslations('Biography');
-  const content = t.raw('content') as BiographyContent;
+  const content = await getBiography();
+
+  if (!content) {
+    return null;
+  }
 
   return (
     <Section id={sectionIds.biography}>

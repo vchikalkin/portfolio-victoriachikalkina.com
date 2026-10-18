@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { hasLocale } from 'next-intl';
-import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { setRequestLocale } from 'next-intl/server';
 import { BiographySection } from '@/components/sections/biography';
 import { ContactSection } from '@/components/sections/contact';
 import { HeroSection } from '@/components/sections/hero';
@@ -10,13 +10,14 @@ import { PhotosSection } from '@/components/sections/photos';
 import { RepertoireSection } from '@/components/sections/repertoire';
 import { ScheduleSection } from '@/components/sections/schedule';
 import { routing } from '@/i18n/routing';
+import { isConcertDatePast } from '@/lib/concerts';
+import { getConcerts, getSiteSettings } from '@/lib/sanity/content';
 import {
   buildStructuredData,
   getLocalePath,
   getOgAlternateLocales,
   getOgLocale,
 } from '@/lib/seo';
-import type { ConcertItem } from '@/lib/types/content';
 
 interface HomePageProps {
   readonly params: Promise<{ locale: string }>;
@@ -31,30 +32,32 @@ export async function generateMetadata({
     return {};
   }
 
-  const t = await getTranslations({ locale, namespace: 'MetaHome' });
-  const tMeta = await getTranslations({ locale, namespace: 'Meta' });
+  const settings = await getSiteSettings({ locale });
   const localePath = getLocalePath(locale);
+  const siteName = settings?.name || 'Victoria Chikalkina';
+  const title = settings?.metaTitle || siteName;
+  const description = settings?.metaDescription || '';
+  const ogTitle = settings?.ogTitle || title;
+  const ogDescription = settings?.ogDescription || description;
 
-  // Full openGraph/twitter objects — Next replaces nested metadata from the layout.
-  // No og:image / twitter:image so messengers (Telegram, etc.) show a text-only preview.
   return {
     title: {
-      absolute: t('title'),
+      absolute: title,
     },
-    description: t('description'),
+    description,
     openGraph: {
       type: 'website',
       locale: getOgLocale(locale),
       alternateLocale: getOgAlternateLocales(locale),
       url: localePath,
-      siteName: tMeta('siteName'),
-      title: t('ogTitle'),
-      description: t('ogDescription'),
+      siteName,
+      title: ogTitle,
+      description: ogDescription,
     },
     twitter: {
       card: 'summary',
-      title: t('ogTitle'),
-      description: t('ogDescription'),
+      title: ogTitle,
+      description: ogDescription,
     },
   };
 }
@@ -68,19 +71,17 @@ export default async function HomePage({ params }: HomePageProps) {
 
   setRequestLocale(locale);
 
-  const tMeta = await getTranslations({ locale, namespace: 'Meta' });
-  const tSite = await getTranslations({ locale, namespace: 'Site' });
-  const tSchedule = await getTranslations({ locale, namespace: 'Schedule' });
-  const concerts = tSchedule.raw('items') as ConcertItem[];
+  const settings = await getSiteSettings({ locale });
+  const concerts = await getConcerts({ locale });
   const upcomingConcerts = concerts.filter(
-    (item) => new Date(item.date) >= new Date(),
+    (item) => !isConcertDatePast(item.date),
   );
 
   const structuredData = buildStructuredData({
     locale,
-    name: tSite('name'),
-    description: tMeta('description'),
-    jobTitle: tSite('jobTitle'),
+    name: settings?.name || 'Victoria Chikalkina',
+    description: settings?.metaDescription || '',
+    jobTitle: settings?.jobTitle || 'Pianist',
     upcomingConcerts,
   });
 
